@@ -10,8 +10,12 @@ public class BoardService {
 		boardDao = new BoardDAO();
 	}
 	
-	public List<BoardVO> selectBoard() throws SQLException{
-		return boardDao.selectBoard();
+	int insertBoard(BoardVO vo) throws SQLException{
+		return boardDao.insertBoard(vo);
+	}
+	
+	public List<BoardVO> selectBoardAll(String condition, String keyword) throws SQLException{
+		return boardDao.selectBoardAll(condition, keyword);
 	}
 	
 }
