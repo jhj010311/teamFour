@@ -10,40 +10,32 @@
                             <a href="./index.html"><img src="img/logo.png" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
+                            <li>주소 : 서울특별시 서대문구 신촌로 141 위고인 빌딩 1층 이젠아카데미 컴퓨터 학원</li>
+                            <li>Tel : 02-393-4321</li>
+                            <li>Email: dkssudgktpdy@ezen.co.kr</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
-                        <h6>Useful Links</h6>
+                        <h6>유용한 링크</h6>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="https://www.naver.com/">네이버</a></li>
+                            <li><a href="https://www.coupang.com/">쿠팡</a></li>
+                            <li><a href="https://www.gmarket.co.kr/">G마켓</a></li>
+                            <li><a href="https://www.tmon.co.kr/">티몬</a></li>
+                            <li><a href="https://www.danawa.com/">다나와</a></li>
+                            <li><a href="https://www.11st.co.kr/">11번가</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <h6>지금 저희와 함께 하세요!</h6>
+                        <p>이메일을 입력하고 구독하시면 새로운 소식들이 빵빵!</p>
                         <form action="#">
                             <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
+                            <button type="submit" class="site-btn">구독하기</button>
                         </form>
                         <div class="footer__widget__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>

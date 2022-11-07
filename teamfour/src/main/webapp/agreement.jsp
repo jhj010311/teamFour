@@ -504,17 +504,6 @@ textarea{
 </div>
 <!-- } 콘텐츠 끝 -->
 
-
-
-<style>
-#top_btn {
-	display: none;
-}
-</style>
-<button type="button" id="top_btn">
-	<i class="fa fa-arrow-up" aria-hidden="true"></i><span
-		class="sound_only">상단으로</span>
-</button>
 <script type="text/javascript">
 	$(function() {
 		$("#top_btn").on("click", function() {
