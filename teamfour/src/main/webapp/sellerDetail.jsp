@@ -23,9 +23,9 @@
             </div>
             <!-- } 글자크기 조정 display:none 되어 있음 끝 -->
             
-<jsp:useBean id="sellerInfoService" class="com.sellorinfo.model.SellerInfoService"
+<jsp:useBean id="sellerInfoService" class="com.sellerinfo.model.SellerInfoService"
 scope="session"></jsp:useBean>
-<jsp:useBean id="sellerInfoVo" class="com.sellorinfo.model.SellerInfoVO"
+<jsp:useBean id="sellerInfoVo" class="com.sellerinfo.model.SellerInfoVO"
 scope="session"></jsp:useBean>
 <%
 	request.setCharacterEncoding("utf-8");

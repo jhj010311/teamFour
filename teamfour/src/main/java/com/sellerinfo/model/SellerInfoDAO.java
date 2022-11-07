@@ -1,4 +1,4 @@
-package com.sellorinfo.model;
+package com.sellerinfo.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -49,7 +49,7 @@ public class SellerInfoDAO {
 		}
 	}
 	
-	public int checkUserId(String sellor_id) throws SQLException {
+	public int checkUserId(String seller_id) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -61,7 +61,7 @@ public class SellerInfoDAO {
 			
 			String sql = "select count(*) from sellerinfo where seller_id=?";
 			ps = con.prepareStatement(sql);
-			ps.setString(1, sellor_id);
+			ps.setString(1, seller_id);
 			
 			rs=ps.executeQuery();
 			if(rs.next()) {
@@ -73,7 +73,7 @@ public class SellerInfoDAO {
 				}
 			}
 			System.out.println("아이디 중복확인 결과 cnt = "+cnt+
-					", 매개변수 user_id = "+sellor_id);
+					", 매개변수 user_id = "+seller_id);
 			return cnt;
 		}finally {
 			pool.dbClose(rs, ps, con);

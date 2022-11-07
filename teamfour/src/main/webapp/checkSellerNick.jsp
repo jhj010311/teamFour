@@ -1,10 +1,10 @@
-<%@page import="com.sellorinfo.model.SellerInfoService"%>
+<%@page import="com.sellerinfo.model.SellerInfoService"%>
 <%@page import="java.sql.SQLException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="sellorInfoService" class="com.sellorinfo.model.SellerInfoService" 
+<jsp:useBean id="sellorInfoService" class="com.sellerinfo.model.SellerInfoService" 
 	scope="session"></jsp:useBean>  
-<jsp:useBean id="sellerInfoVo" class="com.sellorinfo.model.SellerInfoVO"
+<jsp:useBean id="sellerInfoVo" class="com.sellerinfo.model.SellerInfoVO"
 scope="session"></jsp:useBean>
 <%
 	//[1] createUser.jsp에서 get방식으로 이동(새창 열기)

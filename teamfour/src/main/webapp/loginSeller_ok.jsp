@@ -1,4 +1,4 @@
-<%@page import="com.sellorinfo.model.SellerInfoService"%>
+<%@page import="com.sellerinfo.model.SellerInfoService"%>
 <%@page import="java.sql.SQLException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<jsp:useBean id="sellerInfoService" class="com.sellorinfo.model.SellerInfoService"
+<jsp:useBean id="sellerInfoService" class="com.sellerinfo.model.SellerInfoService"
 scope="session"></jsp:useBean>
 <body>
 	<%

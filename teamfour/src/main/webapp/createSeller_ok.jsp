@@ -1,9 +1,9 @@
 <%@page import="java.sql.SQLException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="sellerInfoVo" class="com.sellorinfo.model.SellerInfoVO" 
+<jsp:useBean id="sellerInfoVo" class="com.sellerinfo.model.SellerInfoVO" 
  scope="session"></jsp:useBean>
-<jsp:useBean id="sellerInfoService"  class="com.sellorinfo.model.SellerInfoService" 
+<jsp:useBean id="sellerInfoService"  class="com.sellerinfo.model.SellerInfoService" 
 scope="session"></jsp:useBean>
 <!DOCTYPE html>
 <html>

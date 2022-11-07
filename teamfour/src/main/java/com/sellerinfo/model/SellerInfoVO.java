@@ -1,4 +1,4 @@
-package com.sellorinfo.model;
+package com.sellerinfo.model;
 
 import java.sql.Timestamp;
 
