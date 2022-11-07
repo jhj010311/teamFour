@@ -6,6 +6,7 @@ public class ProductAllVO {
 	private int pdcode; /* 상품코드 */
 	private String pdname; /* 상품명 */
 	private int price; /* 가격 */
+	private int qty; //not null check(qty>=0) /* 재고 */
 	private Timestamp regdate; /* 등록일 */
 	private long seller_no; /* 판매자번호 */
 	private String image; /* 이미지 */
@@ -52,6 +53,23 @@ public class ProductAllVO {
 		this.detail = detail;
 		this.div_no = div_no;
 	}
+	
+	public ProductAllVO(int pdcode, String pdname, int price, int qty, Timestamp regdate, long seller_no, String image,
+			String detail, int div_no, String subproduct_name, int maincode, String mainname) {
+		super();
+		this.pdcode = pdcode;
+		this.pdname = pdname;
+		this.price = price;
+		this.qty = qty;
+		this.regdate = regdate;
+		this.seller_no = seller_no;
+		this.image = image;
+		this.detail = detail;
+		this.div_no = div_no;
+		this.subproduct_name = subproduct_name;
+		this.maincode = maincode;
+		this.mainname = mainname;
+	}
 
 
 	public int getPdcode() {
@@ -89,8 +107,8 @@ public class ProductAllVO {
 	public long getSeller_no() {
 		return seller_no;
 	}
-
-	public void setSeller_no(int seller_no) {
+	
+	public void setSeller_no(long seller_no) {
 		this.seller_no = seller_no;
 	}
 
@@ -142,10 +160,24 @@ public class ProductAllVO {
 		this.mainname = mainname;
 	}
 
+	public int getQty() {
+		return qty;
+	}
+
+
+	public void setQty(int qty) {
+		this.qty = qty;
+	}
+
+
 	@Override
 	public String toString() {
-		return "ProductListVO [pdcode=" + pdcode + ", pdname=" + pdname + ", price=" + price + ", regdate=" + regdate
-				+ ", seller_no=" + seller_no + ", image=" + image + ", detail=" + detail + ", div_no=" + div_no
-				+ ", subproduct_name=" + subproduct_name + ", maincode=" + maincode + ", mainname=" + mainname + "]";
+		return "ProductAllVO [pdcode=" + pdcode + ", pdname=" + pdname + ", price=" + price + ", qty=" + qty
+				+ ", regdate=" + regdate + ", seller_no=" + seller_no + ", image=" + image + ", detail=" + detail
+				+ ", div_no=" + div_no + ", subproduct_name=" + subproduct_name + ", maincode=" + maincode
+				+ ", mainname=" + mainname + "]";
 	}
+	
+	
+	
 }

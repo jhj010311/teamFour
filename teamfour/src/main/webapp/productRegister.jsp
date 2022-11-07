@@ -129,52 +129,28 @@ scope ="session"></jsp:useBean>
 							<tbody>
 								<input type="text" name="seller_no" value="<%=sellerInfoVo.getSeller_no() %>">
 									<tr>
-									<th scope="row"><label for="reg_mb_id" class="req">상품명</label></th>
-									<td><input type="text" name="mb_id" id="uid" required
+									<th scope="row"><label for="pdname" class="req">상품명</label></th>
+									<td><input type="text" name="pdname" id="pdname" required
 										class="reg_input" minlength="4" maxlength="20"> 
 										<span id="msg_mb_id" class="reg_msg"> </span>
 								</tr>
 								<tr>
-									<th scope="row"><label for="reg_mb_password" class="req">가격</label></th>
-									<td><input type="password" name="mb_password"
-										id="reg_mb_password" required class="reg_input" minlength="3"
+									<th scope="row"><label for="price" class="req">가격</label></th>
+									<td><input type="text" name="price"
+										id="price" required class="reg_input" minlength="3"
 										maxlength="20"></td>
 								</tr>
 								<tr>
-									<th scope="row"><label for="reg_mb_name" class="req">이름</label></th>
+									<th scope="row"><label for="reg_mb_name" class="req">재고수량</label></th>
 									<td><input type="text" id="reg_mb_name" name="mb_name"
 										value="" required class="reg_input"></td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="reg_mb_nick" class="req">닉네임</label></th>
-									<td><input type="text" name="mb_nick" value="" id="unick"
+									<td><input type="text" name="mb_" value="" id="unick"
 										required class="reg_input nospace" maxlength="20"> <span
 										id="msg_mb_nick" class="reg_msg"></span>
-										<button type="button" id="win_hp_cert2" class="btn_frmline">닉네임
-											중복확인</button></td>
 								</tr>
-
-								<tr>
-									<th scope="row"><label for="reg_mb_zip" class="req">주소</label></th>
-									<td><input type="text" name="mb_zip" value=""
-										id="reg_mb_zip" required class="reg_input" maxlength="6"
-										placeholder="우편번호">
-										<button type="button" class="btn_frmline"
-											onclick="win_zip('fregisterform', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">주소검색</button>
-										<br> <input type="text" name="mb_addr1" value=""
-										id="reg_mb_addr1" required class="reg_input"
-										placeholder="기본주소"> <label for="reg_mb_addr1"
-										class="sound_only">기본주소<strong> 필수</strong></label><br> <input
-										type="text" name="mb_addr2" value="" id="reg_mb_addr2"
-										class="reg_input" placeholder="상세주소"> <label
-										for="reg_mb_addr2" class="sound_only">상세주소</label><br> <input
-										type="text" name="mb_addr3" value="" id="reg_mb_addr3"
-										class="reg_input" readonly="readonly" placeholder="나머지주소">
-										<label for="reg_mb_addr3" class="sound_only">나머지 주소</label> <input
-										type="hidden" name="mb_addr_jibeon" value=""></td>
-								</tr>
-
-
 								<tr>
 									<th scope="row"><label for="reg_mb_hp" class="req">휴대전화</label></th>
 									<td>
