@@ -9,6 +9,7 @@
 <jsp:useBean id="productAllService" class = "com.teamfour.productAll.model.ProductAllService"
  scope = "session"></jsp:useBean>
 
+
 <%
 	// 1. 대분류 선택을 통해 접속
 	// 2. 검색어 입력을 통해 접속
@@ -58,6 +59,7 @@
 	}
 	
 %>
+
 <section class = "product spad">
 	<div class = "container">
 		<div>
@@ -90,10 +92,21 @@
 			<%} else {
 				for(ProductAllVO forVo : filteredPdSearchList){%>
 					<div class = "pdList">
-						<img src = "<%=forVo.getImage() %>">
-						<span><%=forVo.getPdname() %></span>
-						<span> | </span>
-						<span><%=forVo.getPrice() %></span>
+						
+						<div class = "searchImage">
+							<img src = "<%=forVo.getImage() %>"
+							 target = "<%=request.getContextPath() %>/상품세부정보.jsp?pdcode=<%=forVo.getPdcode() %>">
+						</div>
+						<div class = "searchDescription">
+							<span>
+								<a href = "<%=request.getContextPath() %>/상품세부정보.jsp?pdcode=<%=forVo.getPdcode() %>">
+								<%=forVo.getPdname() %> | ₩<%=forVo.getPrice() %>
+								</a>
+							</span>
+							<br>
+							<span>카테고리 : <%=forVo.getMainname() + "-" + forVo.getSubproduct_name() %></span>
+						</div>
+						
 					</div>
 				<%}
 			}%>
