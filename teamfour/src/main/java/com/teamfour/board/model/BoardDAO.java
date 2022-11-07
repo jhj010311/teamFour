@@ -97,7 +97,7 @@ public class BoardDAO {
 				list.add(boardVo);
 				
 				System.out.println("List<BoardVO> selectBoardAll("
-						+ "String condition, String keyword) list.size=" + list.size()
+						+ "String condition, String keyword) 결과 list.size=" + list.size()
 						+ ", 매개변수 condition=" + condition + ", keyword=" + keyword);
 			}
 			return list;
