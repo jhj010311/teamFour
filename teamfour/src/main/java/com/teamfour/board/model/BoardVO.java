@@ -3,23 +3,23 @@ package com.teamfour.board.model;
 import java.sql.Timestamp;
 
 public class BoardVO {
-	private String write_no; /* NUMBER NOT NULL 글번호 */
-	private String user_no; /* NUMBER 회원번호 */
+	private int write_no; /* NUMBER NOT NULL 글번호 */
+	private int user_no; /* NUMBER 회원번호 */
 	private String title;  /* VARCHAR2(30) NOT NULL 제목 */
 	private String writer; /* VARCHAR2(30) NOT NULL 작성자 */
 	private Timestamp regdate; /* DATE DEFAULT sysdate 작성일 */
-	private String read; /* NUMBER NOT NULL 조회 */
+	private int read; /* NUMBER NOT NULL 조회 */
 	private String content; /* CLOB 글내용 */
 	private String filename; /* VARCHAR2(50) 첨부파일 */
-	private String file_size; /* NUMBER 파일크기 */
-	
+	private Long file_size; /* NUMBER 파일크기 */
 	
 	public BoardVO() {
 		super();
+		read = 0;
 	}
-	
-	public BoardVO(String write_no, String user_no, String title, String writer, Timestamp regdate, String read,
-			String content, String filename, String file_size) {
+
+	public BoardVO(int write_no, int user_no, String title, String writer, Timestamp regdate, int read, String content,
+			String filename, Long file_size) {
 		super();
 		this.write_no = write_no;
 		this.user_no = user_no;
@@ -31,20 +31,20 @@ public class BoardVO {
 		this.filename = filename;
 		this.file_size = file_size;
 	}
-
-	public String getWrite_no() {
+	
+	public int getWrite_no() {
 		return write_no;
 	}
 
-	public void setWrite_no(String write_no) {
+	public void setWrite_no(int write_no) {
 		this.write_no = write_no;
 	}
 
-	public String getUser_no() {
+	public int getUser_no() {
 		return user_no;
 	}
 
-	public void setUser_no(String user_no) {
+	public void setUser_no(int user_no) {
 		this.user_no = user_no;
 	}
 
@@ -72,11 +72,11 @@ public class BoardVO {
 		this.regdate = regdate;
 	}
 
-	public String getRead() {
+	public int getRead() {
 		return read;
 	}
 
-	public void setRead(String read) {
+	public void setRead(int read) {
 		this.read = read;
 	}
 
@@ -96,11 +96,11 @@ public class BoardVO {
 		this.filename = filename;
 	}
 
-	public String getFile_size() {
+	public Long getFile_size() {
 		return file_size;
 	}
 
-	public void setFile_size(String file_size) {
+	public void setFile_size(Long file_size) {
 		this.file_size = file_size;
 	}
 
