@@ -86,6 +86,7 @@ try{
                       		for(int i=0;i<list.size();i++){ 
                       		%>
 							<tr>
+								<%-- <input type="hidden" name="cartno" value="<%=list.get(i).getCartNo() %>"> --%>
 								<td class="shoping__cart__item"><img class="session_data"
 									src="<%=list.get(i).getImage()%>" alt="">
 									<h5 class="session_data"><%=list.get(i).getPdName()%></h5></td>
@@ -102,7 +103,7 @@ try{
 								<td class="shoping__cart__total"><%=list.get(i).getTotalprice()%>
 								</td>
 								<td class="shoping__cart__item__close"><span
-									class="icon_close"></span></td>
+									class="icon_close" onClick="location.href='shopCartDelete.jsp?cartno=<%=list.get(i).getCartNo() %>'"></span></td>
 							</tr>
 							<%} %>
 						</tbody>
@@ -114,8 +115,8 @@ try{
 			<div class="col-lg-12">
 				<div class="shoping__cart__btns">
 					<a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a> <a
-						href="#" class="primary-btn cart-btn cart-btn-right"><span
-						class="icon_loading"></span> Upadate Cart</a>
+						href="#" class="primary-btn cart-btn n-right"><span
+						class="icon_loading"></span> Upadate Cacart-btrt</a>
 				</div>
 			</div>
 			<div class="col-lg-6">

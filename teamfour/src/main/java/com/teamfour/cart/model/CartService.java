@@ -18,4 +18,8 @@ public class CartService {
 	public List<CartVO> selectCartItem() throws SQLException {
 		return dao.selectCartItem();
 	}
+	
+	public int deleteCart(int cartno) throws SQLException {
+		return dao.deleteCart(cartno);
+	}
 }

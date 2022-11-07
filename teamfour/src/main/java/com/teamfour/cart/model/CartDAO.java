@@ -94,4 +94,25 @@ public class CartDAO {
 		}
 	}
 	
+	public int deleteCart(int cartno) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps = null;
+		
+		try {
+			con=pool.getConnection();
+			
+			String sql="delete from cart where cartno=?";
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, cartno);
+			
+			int cnt=ps.executeUpdate();
+			System.out.println("상품 삭제결과 cnt="+cnt+", 매개변수 cartno"+cartno);
+			return cnt;
+			
+		}finally {
+			pool.dbClose(ps, con);
+		}
+	}
+
+	
 }
