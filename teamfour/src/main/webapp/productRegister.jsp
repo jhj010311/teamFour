@@ -100,133 +100,142 @@ scope ="session"></jsp:useBean>
 	
 
 %>
-			<!-- 회원정보 입력/수정 시작 { -->
-			<script src="http://moden939.gabia.io/js/jquery.register_form.js"></script>
-			<script src="http://moden939.gabia.io/js/certify.js?v=171253"></script>
-
-			<form id="fregisterform" name="fregisterform"
-				action="<%=request.getContextPath()%>/createSeller_ok.jsp"
-				onsubmit="return fregisterform_submit(this);" method="post"
-				autocomplete="off">
-				<input type="hidden" name="w" value=""> <input type="hidden"
-					name="url" value="%2Fbbs%2Fregister_form2.php"> <input
-					type="hidden" name="agree" value="1"> <input type="hidden"
-					name="agree2" value="1"> <input type="hidden"
-					name="cert_type" value=""> <input type="hidden"
-					name="cert_no" value=""> <input type="hidden" name="mb_sex"
-					value="">
-				<div id="register_form" class="form_01">
-					<h3>
-						판매자 기본정보 <span class="req">필수입력사항</span>
-					</h3>
-					<div class="regi_table">
-						<table>
-							<caption>사이트 이용정보 입력</caption>
-							<colgroup>
-								<col width="130">
-								<col width="*">
-							</colgroup>
-							<tbody>
-								<input type="text" name="seller_no" value="<%=sellerInfoVo.getSeller_no() %>">
-									<tr>
-									<th scope="row"><label for="pdname" class="req">상품명</label></th>
-									<td><input type="text" name="pdname" id="pdname" required
-										class="reg_input" minlength="4" maxlength="20"> 
-										<span id="msg_mb_id" class="reg_msg"> </span>
-								</tr>
-								<tr>
-									<th scope="row"><label for="price" class="req">가격</label></th>
-									<td><input type="text" name="price"
-										id="price" required class="reg_input" minlength="3"
-										maxlength="20"></td>
-								</tr>
-								<tr>
-									<th scope="row"><label for="qty" class="req">재고수량</label></th>
-									<td><input type="text" id="qty" name="qty"
-										value="" required class="reg_input"></td>
-								</tr>
-								<tr>
-									<th scope="row"><label for="reg_mb_nick" class="req">닉네임</label></th>
-									<td><input type="text" name="mb_" value="" id="unick"
-										required class="reg_input nospace" maxlength="20"> <span
-										id="msg_mb_nick" class="reg_msg"></span>
-								</tr>
-								<tr>
-									<th scope="row"><label for="reg_mb_hp" class="req">휴대전화</label></th>
-									<td>
-										<div class="telselect_wrap">
-											<select name="hp1" id="hp1" class="reg_input" required>
-												<option value="010">010</option>
-												<option value="02">02</option>
-												<option value="031">031</option>
-												<option value="032">032</option>
-												<option value="033">033</option>
-												<option value="041">041</option>
-												<option value="042">042</option>
-												<option value="043">043</option>
-												<option value="044">044</option>
-												<option value="051">051</option>
-												<option value="052">052</option>
-												<option value="053">053</option>
-												<option value="054">054</option>
-												<option value="055">055</option>
-												<option value="061">061</option>
-												<option value="062">062</option>
-												<option value="063">063</option>
-												<option value="064">064</option>
-												<option value="070">070</option>
-											</select> <b>-</b> <input type="text" name="hp2" value="" id="hp2"
-												class="reg_input" maxlength="4" required> <b>-</b> <input
-												type="text" name="hp3" value="" id="hp3" class="reg_input"
-												maxlength="4" required>
-										</div> <input type="hidden" name="mb_hp" value="" id="reg_mb_hp">
-
-										<input type="hidden" name="old_mb_hp" value="">
-									</td>
-								</tr>
-								<tr>
-									<th scope="row"><label for="reg_mb_email" class="req">이메일</label></th>
-									<td><input type="hidden" name="old_email" value="">
-
-										<div class="emailselect_wrap">
-											<input type="text" name="email1" value="" id="email1"
-												class="reg_input" maxlength="20" required> <b>@</b>
-											<input type="text" name="email2" value="" id="email2"
-												class="reg_input" maxlength="20" required readonly>
-											<select name='email3' id='email3' class="reg_input" required>
-												<option value="">선택하세요</option>
-												<option value="직">직접입력</option>
-												<option value="naver.com">naver.com</option>
-												<option value="daum.net">daum.net</option>
-												<option value="nate.com">nate.com</option>
-												<option value="gmail.com">gmail.com</option>
-												<option value="hanmail.com">hanmail.com</option>
-												<option value="hotmail.com">hotmail.com</option>
-												<option value="yahoo.com">yahoo.com</option>
-											</select>
-										</div> <input type="hidden" name="mb_email" value=""
-										id="reg_mb_email"> <span id="msg_mb_email"
-										class="reg_msg"></span></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div class="btn_confirm">
-						<input type="hidden" name="chkId" id="chkId"> <input
-							type="hidden" name="chkNick" id="chkNick"> <a
-							href="mainpage.jsp" class="btn_cancel">CANCEL</a> <input
-							type="submit" value="JOIN" id="btn_submit" class="btn_submit"
-							accesskey="s">
-					</div>
+		<!-- 회원정보 입력/수정 시작 { -->
+	<script src="http://moden939.gabia.io/js/jquery.register_form.js"></script>
+	<script src="http://moden939.gabia.io/js/certify.js?v=171253"></script>
+		<form id="fregisterform" name="fregisterform"
+		action="<%=request.getContextPath()%>/createSeller_ok.jsp"
+		onsubmit="return fregisterform_submit(this);" method="post"
+		enctype="multipart/form-data" >
+		<input type="hidden" name="w" value=""> <input type="hidden"
+			name="url" value="%2Fbbs%2Fregister_form2.php"> <input
+			type="hidden" name="agree" value="1"> <input type="hidden"
+			name="agree2" value="1"> <input type="hidden"
+			name="cert_type" value=""> <input type="hidden"
+			name="cert_no" value=""> <input type="hidden" name="mb_sex"
+			value="">
+		<div id="register_form" class="form_01">
+			<h3>
+				상품등록 <span class="req">필수입력사항</span>
+			</h3>
+			<div class="regi_table">
+				<table>
+					<caption>상품정보입력</caption>
+					<colgroup>
+						<col width="130">
+						<col width="*">
+					</colgroup>
+					<tbody>
+						<input type="text" name="seller_no" value="<%=sellerInfoVo.getSeller_no() %>">
+						<tr>
+						<th scope="row"><label for="pdname" class="req">상품명</label></th>
+						<td><input type="text" name="pdname" id="pdname" required
+									class="reg_input" > 
+							<span id="msg_mb_id" class="reg_msg"> </span>
+						</tr>
+						<tr>
+							<th scope="row"><label for="price" class="req">가격</label></th>
+							<td><input type="text" name="price"
+								id="price" required class="reg_input" ></td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="qty" class="req">재고수량</label></th>
+							<td><input type="text" id="qty" name="qty"
+								value="" required class="reg_input"></td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="productImage" class="req">제품이미지</label></th>
+							<td><input type="file" name="productImage"  id="productImage"
+								required class="reg_input nospace" > 
+								<span id="msg_mb_nick" class="reg_msg"></span>
+						</tr>
+						<tr>
+							<th scope="row"><label for="reg_mb_email" class="req">상세설명</label></th>
+							<td><input type="hidden" name="old_email" value="">
+									<div class="emailselect_wrap">
+									<textarea name="detail" id="detail" rows="100" cols="50"
+										class="detail" required></textarea>
+								</div> 
+								</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="reg_mb_hp" class="req">소분류코드</label></th>
+							<td>
+								<div class="telselect_wrap">
+									<select name="cloth" id="cloth" class="reg_input" required>
+										<option value="empty">의류는 여기</option>
+										<option value="10010">상의</option>
+										<option value="10020">하의</option>
+										<option value="10030">아우터</option>
+										<option value="10040">수트/셋업</option>
+										<option value="10050">운동복</option>
+										<option value="10060">수영복</option>
+										</select>
+										
+									<select name="food" id="cloth" class="reg_input" required>
+										<option value="empty">식품은 여기</option>
+										<option value="20010">건강식품</option>
+										<option value="20020">과일</option>
+										<option value="20030">채소</option>
+										<option value="20040">축산물</option>
+										<option value="20050">수산물/건어물</option>
+										<option value="20060">쌀/잡곡</option>
+										<option value="20070">견과류/건과류</option>
+										<option value="20080">생수/음료</option>
+										<option value="20090">면/통조림</option>
+										</select>	
+										
+									<select name="furniture" id="furniture" class="reg_input" required>
+										<option value="empty">가구는 여기</option>
+										<option value="30010">의자</option>
+										<option value="30020">침대/매트리스</option>
+										<option value="30030">드레스룸/헹거</option>
+										<option value="30040">책상/책장</option>
+										<option value="30050">식탁/주방가구</option>
+										<option value="30060">조명/스탠드</option>
+										</select>
+										
+									<select name="electronics" id="electronics" class="reg_input" required>
+										<option value="empty">전자제품은 여기</option>
+										<option value="40010">겨울가전</option>
+										<option value="40020">TV</option>
+										<option value="40030">청소기</option>
+										<option value="40040">냉장고</option>
+										<option value="40050">세탁기/건조기</option>
+										<option value="40060">욕실가전</option>
+										<option value="40070">생활가전</option>
+										</select>
+									<select name="pet" id="pet" class="reg_input" required>
+										<option value="empty">펫상품은 여기</option>
+										<option value="50010">영양제</option>
+										<option value="50020">수제간식</option>
+										<option value="50030">강아지용품</option>
+										<option value="50040">고양이물품</option>
+										<option value="50050">기타반려용품</option>
+										<option value="50060">조류/햄스터/토끼/고슴도치용품</option>
+										</select>
+									</div> <input type="hidden" name="mb_hp" value="" id="reg_mb_hp">
+									<input type="hidden" name="old_mb_hp" value="">
+							</td>
+						</tr>
+					</tbody>
+					</table>
 				</div>
+				<div class="btn_confirm">
+					<input type="hidden" name="chkId" id="chkId"> <input
+						type="hidden" name="chkNick" id="chkNick"> <a
+						href="mainpage.jsp" class="btn_cancel">CANCEL</a> <input
+						type="submit" value="JOIN" id="btn_submit" class="btn_submit"
+						accesskey="s">
+					</div>
+			</div>
 
+		</form>
 
-			</form>
-
-			<!-- 유효성검사 -->
-			<script
-				src="http://moden939.gabia.io/skin/member/basic/register_form.skin2.check.js?v=171253"></script>
-			<script type="text/javascript">
+		<!-- 유효성검사 -->
+		<script
+			src="http://moden939.gabia.io/skin/member/basic/register_form.skin2.check.js?v=171253"></script>
+		<script type="text/javascript">
 	  $('#win_hp_cert').click(function(){
       	var id=$('#uid').val();
       	open('checkSellerId.jsp?mb_id='+id,'chk',
@@ -239,6 +248,33 @@ scope ="session"></jsp:useBean>
       		'width=500,height=300,left=0,top=0,location=yes,resizable=yes');	
       });
 	
+      $('#btn_submit').click(function(){
+    	 if($('#pdname').val().length<1{
+    		alert('상품명을 입력해주세요');
+    		$('#pdname').focue();
+    		return false;
+    	 });
+    	 
+    	 if($('#price').val().length<1{
+     		alert('금액을 입력해주세요');
+     		$('#price').focue();
+     		return false;
+     	 });
+    	 
+    	 if($('#qty').val().length<1{
+      		alert('재고수량을 입력해주세요');
+      		$('#qty').focue();
+      		return false;
+      	 });
+    	 
+      });
+      
+      
+      
+      
+      
+      
+      
 	</script>
 			<script type="text/javascript">
     $(function() {
@@ -246,95 +282,6 @@ scope ="session"></jsp:useBean>
         
       });
     // submit 최종 폼체크
-    function fregisterform_submit(f)
-    {
-         // 회원아이디 검사
-        if (f.w.value == "") {
-            var msg = reg_mb_id_check();
-            if (msg) {
-                alert(msg);
-                f.mb_id.select();
-                return false;
-            }
-        } 
-
-        if (f.w.value == "") {
-            if (f.mb_password.value.length < 3) {
-                alert("비밀번호를 3글자 이상 입력하십시오.");
-                f.mb_password.focus();
-                return false;
-            }
-        }
-        
-        if (f.mb_password.value != f.mb_password_re.value) {
-            alert("비밀번호가 같지 않습니다.");
-            f.mb_password_re.focus();
-            return false;
-        }
-
-        if (f.mb_password.value.length > 0) {
-            if (f.mb_password_re.value.length < 3) {
-                alert("비밀번호를 3글자 이상 입력하십시오.");
-                f.mb_password_re.focus();
-                return false;
-            }
-        }
-
-        // 이름 검사
-        if (f.w.value=="") {
-            if (f.mb_name.value.length < 1) {
-                alert("이름을 입력하십시오.");
-                f.mb_name.focus();
-                return false;
-            }
-
-            /*
-            var pattern = /([^가-힣\x20])/i;
-            if (pattern.test(f.mb_name.value)) {
-                alert("이름은 한글로 입력하십시오.");
-                f.mb_name.select();
-                return false;
-            }
-            */
-        }
-
-        
-        // 닉네임 검사
-        if ((f.w.value == "") || (f.w.value == "u" && f.mb_nick.defaultValue != f.mb_nick.value)) {
-            var msg = reg_mb_nick_check();
-            if (msg) {
-                alert(msg);
-                f.reg_mb_nick.select();
-                return false;
-            }
-        }
-        
-        // E-mail 검사
-        if ((f.w.value == "") || (f.w.value == "u" && f.mb_email.defaultValue != f.mb_email.value)) {
-            var msg = reg_mb_email_check();
-            if (msg) {
-                alert(msg);
-                f.reg_mb_email.select();
-                return false;
-            }
-        }
-
-     
-        
-            var msg = reg_mb_recommend_check();
-            if (msg) {
-                alert(msg);
-                f.mb_recommend.select();
-                return false;
-            }
-        }
-
-        if (!chk_captcha()) return false;
-
-        document.getElementById("btn_submit").disabled = "disabled";
-
-        return true;
-    }
 			
 			
     </script>

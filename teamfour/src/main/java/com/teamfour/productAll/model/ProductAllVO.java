@@ -14,6 +14,7 @@ public class ProductAllVO {
 	private int div_no; /* 소분류코드 */
 	
 	private String subproduct_name; /* 제품명 */
+	
 	private int maincode; /* 대분류코드 */
 	private String mainname; /* 대분류이름 */
 	
