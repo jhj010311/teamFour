@@ -10,11 +10,11 @@
     boolean t_sellorlogin = false;
     if(t_userid!=null && !t_userid.isEmpty()){ //세션이 있다면 로그인 된 상태
     	t_userlogin = true;
-    	request.setAttribute("d_userid", t_userid);
+    	session.setAttribute("d_userid", t_userid);
     }
     if(t_sellerid!=null && !t_sellerid.isEmpty()){ //세션이 있다면 로그인 된 상태
     	t_sellorlogin = true;
-    	request.setAttribute("d_sellerid", t_sellerid);
+    	session.setAttribute("d_sellerid", t_sellerid);
     }
     
 %>

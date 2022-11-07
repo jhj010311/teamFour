@@ -90,9 +90,14 @@ body {
 	background: #f2f2f2;
 }
 </style>
-
-<%
-	String seller_se = (String)request.getAttribute("sellerid");
+<jsp:useBean id="sellerInfoService" class="com.sellerinfo.model.SellerInfoService"
+scope = "session"></jsp:useBean>
+<jsp:useBean id="sellerInfoVo" class="com.sellerinfo.model.SellerInfoVO"
+scope ="session"></jsp:useBean>
+<%	
+	String sellerid = (String)session.getAttribute("d_sellerid");
+	sellerInfoVo = sellerInfoService.selectSeller(sellerid);
+	
 
 %>
 			<!-- 회원정보 입력/수정 시작 { -->
@@ -122,9 +127,8 @@ body {
 								<col width="*">
 							</colgroup>
 							<tbody>
-							<input type="hidden" name="seller_no" value=
-								<tr>
-									
+								<input type="text" name="seller_no" value="<%=sellerInfoVo.getSeller_no() %>">
+									<tr>
 									<th scope="row"><label for="reg_mb_id" class="req">상품명</label></th>
 									<td><input type="text" name="mb_id" id="uid" required
 										class="reg_input" minlength="4" maxlength="20"> 

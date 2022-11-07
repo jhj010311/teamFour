@@ -30,7 +30,7 @@ scope="session"></jsp:useBean>
 <%
 	request.setCharacterEncoding("utf-8");
 	
-	String sellerinfo = (String)request.getAttribute("d_sellerid");
+	String sellerinfo = (String)session.getAttribute("d_sellerid");
 	if(sellerinfo!=null || !sellerinfo.isEmpty()){
 		sellerInfoVo=sellerInfoService.selectSeller(sellerinfo);
 	}else{%>
@@ -39,6 +39,8 @@ scope="session"></jsp:useBean>
 		</script>
 	<% }
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	
+	
 
 %>
 <!-- 마이페이지 시작 { -->
