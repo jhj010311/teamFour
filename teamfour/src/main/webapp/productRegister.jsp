@@ -141,8 +141,8 @@ scope ="session"></jsp:useBean>
 										maxlength="20"></td>
 								</tr>
 								<tr>
-									<th scope="row"><label for="reg_mb_name" class="req">재고수량</label></th>
-									<td><input type="text" id="reg_mb_name" name="mb_name"
+									<th scope="row"><label for="qty" class="req">재고수량</label></th>
+									<td><input type="text" id="qty" name="qty"
 										value="" required class="reg_input"></td>
 								</tr>
 								<tr>

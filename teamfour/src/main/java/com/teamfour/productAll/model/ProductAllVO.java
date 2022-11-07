@@ -12,6 +12,7 @@ public class ProductAllVO {
 	private String image; /* 이미지 */
 	private String detail; /* 상세설명 */
 	private int div_no; /* 소분류코드 */
+	
 	private String subproduct_name; /* 제품명 */
 	private int maincode; /* 대분류코드 */
 	private String mainname; /* 대분류이름 */
