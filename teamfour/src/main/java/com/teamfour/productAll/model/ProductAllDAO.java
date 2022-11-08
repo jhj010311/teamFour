@@ -43,6 +43,7 @@ public class ProductAllDAO {
 				int pdcode = rs.getInt("pdcode");
 				String pdname = rs.getString("pdname");
 				int price = rs.getInt("price");
+				int qty = rs.getInt("qty");
 				Timestamp regdate = rs.getTimestamp("regdate");
 				int seller_no = rs.getInt("seller_no");
 				String image = rs.getString("image");
@@ -52,8 +53,8 @@ public class ProductAllDAO {
 				int maincode = rs.getInt("maincode");
 				String mainname = rs.getString("mainname");
 				
-				ProductAllVO vo = new ProductAllVO(pdcode, pdname, price, regdate, seller_no, image, detail,
-						div_no, subproduct_name, maincode, mainname);
+				ProductAllVO vo = new ProductAllVO(pdcode, pdname, price, qty, regdate,
+						seller_no, image, detail, div_no, subproduct_name, maincode, mainname);
 				list.add(vo);
 			}
 			System.out.println("이름으로 상품검색 결과 list.size=" + list.size()
@@ -81,7 +82,7 @@ public class ProductAllDAO {
 					+ " on pl.div_no = s.div_no"
 					+ "	join mainproduct m"
 					+ " on s.maincode = m.maincode"
-					+ "	where pdcode = ?";
+					+ "	where pl.pdcode = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, pdcode);
 			
@@ -89,6 +90,7 @@ public class ProductAllDAO {
 			while(rs.next()) {
 				String pdname = rs.getString("pdname");
 				int price = rs.getInt("price");
+				int qty = rs.getInt("qty");
 				Timestamp regdate = rs.getTimestamp("regdate");
 				int seller_no = rs.getInt("seller_no");
 				String image = rs.getString("image");
@@ -101,6 +103,7 @@ public class ProductAllDAO {
 				vo.setPdcode(pdcode);
 				vo.setPdname(pdname);
 				vo.setPrice(price);
+				vo.setQty(qty);
 				vo.setRegdate(regdate);
 				vo.setSeller_no(seller_no);
 				vo.setImage(image);
@@ -129,7 +132,7 @@ public class ProductAllDAO {
 		try {
 			con = pool.getConnection();
 			
-			String sql = "select pl.pdcode, pl.pdname, pl.price, pl.regdate,"
+			String sql = "select pl.pdcode, pl.pdname, pl.price, pl.qty, pl.regdate,"
 					+ " pl.seller_no, pl.image, pl.detail, pl.div_no,"
 					+ " s.subproduct_name, m.mainname"
 					+ " from productList pl join subproduct s"
@@ -145,6 +148,7 @@ public class ProductAllDAO {
 				int pdcode = rs.getInt("pdcode");
 				String pdname = rs.getString("pdname");
 				int price = rs.getInt("price");
+				int qty = rs.getInt("qty");
 				Timestamp regdate = rs.getTimestamp("regdate");
 				int seller_no = rs.getInt("seller_no");
 				String image = rs.getString("image");
@@ -153,7 +157,7 @@ public class ProductAllDAO {
 				String subproduct_name = rs.getString("subproduct_name");
 				String mainname = rs.getString("mainname");
 				
-				ProductAllVO vo = new ProductAllVO(pdcode, pdname, price, regdate, seller_no, image, detail,
+				ProductAllVO vo = new ProductAllVO(pdcode, pdname, price, qty, regdate, seller_no, image, detail,
 						div_no, subproduct_name, maincode, mainname);
 				list.add(vo);
 			}
@@ -193,17 +197,18 @@ public class ProductAllDAO {
 		try {
 			con=pool.getConnection();
 			
-			String sql="insert into productList(pdcode, pdname, price, seller_no, image, detail, div_no)"
-				+ " values(?,?,?,?,?,?,?)";
+			String sql="insert into productList(pdcode, pdname, price, qty, seller_no, image, detail, div_no)"
+				+ " values(?,?,?,?,?,?,?,?)";
 			ps=con.prepareStatement(sql);
 			
 			ps.setInt(1, vo.getPdcode());
 			ps.setString(2, vo.getPdname());
 			ps.setInt(3, vo.getPrice());
-			ps.setLong(4, vo.getSeller_no());
-			ps.setString(5, vo.getImage());
-			ps.setString(6, vo.getDetail());
-			ps.setInt(7, vo.getDiv_no());
+			ps.setInt(4, vo.getQty());
+			ps.setLong(5, vo.getSeller_no());
+			ps.setString(6, vo.getImage());
+			ps.setString(7, vo.getDetail());
+			ps.setInt(8, vo.getDiv_no());
 			
 			int cnt=ps.executeUpdate();
 			System.out.println("상품 등록 결과 cnt="+cnt+", 매개변수 vo="+vo);
