@@ -40,6 +40,8 @@ public class ReboardDAO {
 			
 			String sql="insert into reboard\r\n" + 
 					"values(reboard_seq.nextval,?,?,?,?,sysdate,?,?,?,0,?)";
+			ps=con.prepareStatement(sql);
+			
 			ps.setString(1, vo.getWriter());
 			ps.setString(2, vo.getEmail());
 			ps.setString(3, vo.getSubject());
@@ -50,6 +52,8 @@ public class ReboardDAO {
 			ps.setString(8, vo.getContent());
 			
 			int cnt=ps.executeUpdate();
+			
+			System.out.println("게시글 등록 결과 cnt"+cnt+", 매개변수 vo="+vo);
 			return cnt;
 		}finally {
 			pool.dbClose(rs, ps, con);
@@ -145,7 +149,7 @@ public class ReboardDAO {
 		
 	}
 	
-	public void reWriteBoard(ReboardVO vo) throws SQLException {
+	public int reWriteBoard(ReboardVO vo) throws SQLException {
 		Connection con=null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -164,7 +168,6 @@ public class ReboardDAO {
 			ps.setInt(2, re_level);
 			
 			ps.executeUpdate();
-			
 			String sql="insert into reboard"
 					+ " values(reboard_seq.nextval,?,?,?,?,sysdate,?,?,?,0,?)";
 			ps=con.prepareStatement(sql);
@@ -178,6 +181,9 @@ public class ReboardDAO {
 			ps.setInt(7, re_level+1);
 			ps.setString(8, vo.getContent());
 			
+			int cnt=ps.executeUpdate();
+			
+			return cnt;
 		}finally {
 			pool.dbClose(rs, ps, con);
 		}

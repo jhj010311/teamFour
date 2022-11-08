@@ -9,17 +9,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:useBean id="boardVO" class="com.reboard.model.ReboardVO"
+<jsp:useBean id="reboardVO" class="com.reboard.model.ReboardVO"
 	scope="page"></jsp:useBean>
+	<jsp:setProperty property="*" name="reboardVO"/>
 <jsp:useBean id="reboardService" class="com.reboard.model.ReboardService"
 	scope="session"></jsp:useBean>
 <%
-	request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
 
 	try{
-		int cnt=reboardService.insertBoard(boardVO);
+		int cnt=reboardService.insertBoard(reboardVO);
 		if(cnt>0){
-		response.sendRedirect("BoardList.jsp");
+			response.sendRedirect("BoardList.jsp");
 	    }
 	}catch(SQLException e){
 		e.printStackTrace();

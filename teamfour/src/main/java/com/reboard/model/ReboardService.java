@@ -22,8 +22,8 @@ public class ReboardService {
 		return dao.getOneBoard(num);
 	}
 	
-	public void reWriteBoard(ReboardVO vo) throws SQLException {
-		dao.reWriteBoard(vo);
+	public int reWriteBoard(ReboardVO vo) throws SQLException {
+		return dao.reWriteBoard(vo);
 	}
 	
 	public ReboardVO getOneUpdateBoard(int num) throws SQLException {
