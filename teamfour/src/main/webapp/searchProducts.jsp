@@ -95,11 +95,11 @@
 						
 						<div class = "searchImage">
 							<img src = "<%=forVo.getImage() %>"
-							 target = "<%=request.getContextPath() %>/상품세부정보.jsp?pdcode=<%=forVo.getPdcode() %>">
+							 target = "<%=request.getContextPath() %>/shop-details.jsp?pdcode=<%=forVo.getPdcode() %>">
 						</div>
 						<div class = "searchDescription">
 							<span>
-								<a href = "<%=request.getContextPath() %>/상품세부정보.jsp?pdcode=<%=forVo.getPdcode() %>">
+								<a href = "<%=request.getContextPath() %>/shop-details.jsp?pdcode=<%=forVo.getPdcode() %>">
 								<%=forVo.getPdname() %> | ₩<%=forVo.getPrice() %>
 								</a>
 							</span>
