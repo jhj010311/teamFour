@@ -48,7 +48,7 @@ scope="session"></jsp:useBean>
 </head>
 <body>
 <h2>닉네임 중복검사</h2>
-<form name="frmsellornick" method="post" action="checksellornick.jsp">
+<form name="frmsellornick" method="post" action="checksellernick.jsp">
 	<label for="sellornick">닉네임 : </label>
 	<input type="text" name="mb_nick" id="mb_nick" size="17" 
 		value="<%=sellernick%>">

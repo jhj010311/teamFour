@@ -263,104 +263,80 @@ body {
       		'width=500,height=300,left=0,top=0,location=yes,resizable=yes');	
       });
 	
+      $(function(){
+          $('#btn_submit').click(function(){
+        	  if($('#uid').val().length<4){
+        		  alert('아이디는 4자 이상이어야 합니다.');
+        		  $('#uid').focus();
+    	          return false;
+        	  }
+        	  
+             if($('#chkId').val()==""){
+    			alert('아이디 중복확인 하세요');
+    			$('#chkId').focus();
+    				return false;
+    			}
+             
+             if($('#reg_mb_password').val() != $('#reg_mb_password_re').val() ){
+       		  alert('비밀번호가 일치하지 않아요.');
+       			$('#reg_mb_password').focus();
+    	          return false;
+       	  	 }
+        	  
+             if($('#reg_mb_name').val().length<1){
+            	 alert('이름을 입력하셔야 합니다.');
+            	 $('#reg_mb_name').focus();
+    	          return false;
+             }
+             
+             if($('#unick').val().length<1){
+            	 alert('닉네임을 입력하셔야 합니다.');
+            	 $('#unick').focus();
+    	          return false;
+             }
+    		if($('#chkNick').val()==""){
+    			alert('닉네임 중복체크하세요');
+    			$('#chkNick').focus();
+    			return false;
+    		}     
+        	 if($('#reg_mb_zip').val().length<1 || $('#reg_mb_addr1').val().length<1 ||
+        			 $('#reg_mb_addr3').val().length<1){
+        		alert('주소를 입력하셔야합니다');
+     			$('#reg_mb_zip').focus();
+     			return false;
+        	 }
+        	
+        	 if($('#hp2').val().length<4 || $('#hp3').val().length<4 ||
+        			 $('#reg_mb_addr3').val().length<1){
+        		alert('연락처를 제대로 적으세요');
+     			$('#hp2').focus();
+     			return false;
+        	 }
+        	  
+        	 if($('#email1').val().length<1 || $('#email2').val().length<1){
+        		alert('이메일을 입력하셔야합니다');
+     			$('#email1').focus();
+     			return false;
+        	 }
+        	  
+        	  
+        	  
+        	  
+        	  
+         });
+        }); 
+      
+      
+      
+      
+      
+      
 	</script>
 			<script type="text/javascript">
     $(function() {
         $("#reg_zip_find").css("display", "inline-block");
         
       });
-    // submit 최종 폼체크
-    function fregisterform_submit(f)
-    {
-         // 회원아이디 검사
-        if (f.w.value == "") {
-            var msg = reg_mb_id_check();
-            if (msg) {
-                alert(msg);
-                f.mb_id.select();
-                return false;
-            }
-        } 
-
-        if (f.w.value == "") {
-            if (f.mb_password.value.length < 3) {
-                alert("비밀번호를 3글자 이상 입력하십시오.");
-                f.mb_password.focus();
-                return false;
-            }
-        }
-        
-        if (f.mb_password.value != f.mb_password_re.value) {
-            alert("비밀번호가 같지 않습니다.");
-            f.mb_password_re.focus();
-            return false;
-        }
-
-        if (f.mb_password.value.length > 0) {
-            if (f.mb_password_re.value.length < 3) {
-                alert("비밀번호를 3글자 이상 입력하십시오.");
-                f.mb_password_re.focus();
-                return false;
-            }
-        }
-
-        // 이름 검사
-        if (f.w.value=="") {
-            if (f.mb_name.value.length < 1) {
-                alert("이름을 입력하십시오.");
-                f.mb_name.focus();
-                return false;
-            }
-
-            /*
-            var pattern = /([^가-힣\x20])/i;
-            if (pattern.test(f.mb_name.value)) {
-                alert("이름은 한글로 입력하십시오.");
-                f.mb_name.select();
-                return false;
-            }
-            */
-        }
-
-        
-        // 닉네임 검사
-        if ((f.w.value == "") || (f.w.value == "u" && f.mb_nick.defaultValue != f.mb_nick.value)) {
-            var msg = reg_mb_nick_check();
-            if (msg) {
-                alert(msg);
-                f.reg_mb_nick.select();
-                return false;
-            }
-        }
-        
-        // E-mail 검사
-        if ((f.w.value == "") || (f.w.value == "u" && f.mb_email.defaultValue != f.mb_email.value)) {
-            var msg = reg_mb_email_check();
-            if (msg) {
-                alert(msg);
-                f.reg_mb_email.select();
-                return false;
-            }
-        }
-
-     
-        
-            var msg = reg_mb_recommend_check();
-            if (msg) {
-                alert(msg);
-                f.mb_recommend.select();
-                return false;
-            }
-        }
-
-        if (!chk_captcha()) return false;
-
-        document.getElementById("btn_submit").disabled = "disabled";
-
-        return true;
-    }
-			
-			
     </script>
 
 			<!-- } 회원정보 입력/수정 끝 -->

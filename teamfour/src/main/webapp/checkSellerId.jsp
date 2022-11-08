@@ -47,7 +47,7 @@ scope="page"></jsp:useBean>
 </head>
 <body>
 <h2>아이디 중복검사</h2>
-<form name="frmSellorId" method="post" action="checkSellorId.jsp">
+<form name="frmSellorId" method="post" action="checkSellerId.jsp">
 	<label for="SellorId">아이디 : </label>
 	<input type="text" name="mb_id" id="mb_id" size="17" 
 		value="<%=sellerid%>">
