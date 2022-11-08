@@ -17,21 +17,6 @@ scope="session"></jsp:useBean>
 		request.setCharacterEncoding("utf-8");
 		
 	
-		String chkid = request.getParameter("chkId");
-		String chknick = request.getParameter("chkNick");
-		
-		if(chkid==null || chkid.isEmpty()){%>
-			<script type="text/javascript">
-				alert('아이디 체크하고 오세요');
-				history.back();
-			</script>
-		<%}
-		if(chknick.isEmpty() || chknick==null){%>
-			<script type="text/javascript">
-				alert('닉네임 체크하고 오세요');
-				history.back();
-			</script>
-		<%}
 	
 		String id = request.getParameter("mb_id");
 		String pwd = request.getParameter("mb_password");
