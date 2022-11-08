@@ -194,18 +194,17 @@ public class ProductAllDAO {
 		try {
 			con=pool.getConnection();
 			
-			String sql="insert into productList(pdcode, pdname, price, qty, seller_no, image, detail, div_no)"
-				+ " values(?,?,?,?,?,?,?,?)";
+			String sql="insert into productList(pdcode, pdname, price, qty, seller_no, image, detail, div_no) "
+				+ " values(productList_seq.nextval,?,?,?,?,?,?,?)";
 			ps=con.prepareStatement(sql);
 			
-			ps.setInt(1, vo.getPdcode());
-			ps.setString(2, vo.getPdname());
-			ps.setInt(3, vo.getPrice());
-			ps.setInt(4, vo.getQty());
-			ps.setLong(5, vo.getSeller_no());
-			ps.setString(6, vo.getImage());
-			ps.setString(7, vo.getDetail());
-			ps.setInt(8, vo.getDiv_no());
+			ps.setString(1, vo.getPdname());
+			ps.setInt(2, vo.getPrice());
+			ps.setInt(3, vo.getQty());
+			ps.setLong(4, vo.getSeller_no());
+			ps.setString(5, vo.getImage());
+			ps.setString(6, vo.getDetail());
+			ps.setInt(7, vo.getDiv_no());
 			
 			int cnt=ps.executeUpdate();
 			System.out.println("상품 등록 결과 cnt="+cnt+", 매개변수 vo="+vo);

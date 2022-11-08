@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class Utility {
 	
-	public static final String UPLOAD_DIR = "pds_upload";
+	public static final String UPLOAD_DIR = "img";
 	public static final String TEST_DIR 
-	= "C:\\lecture\\workspace_list\\jsp_ws\\herbmall\\src\\main\\webapp\\pds_upload";
+	= "C:\\lecture\\workspace_list\\jsp_ws\\teamfour\\src\\main\\webapp\\img";
 
 	
 	public static String displayRe(int step) {

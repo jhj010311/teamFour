@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../include/subtop2.jsp"%>
-	<script src="js/jquery-3.6.1.min.js"></script>
+	<script src="js/jquery-3.6.1.min.js" charset="utf-8"></script>
 <body>
 	<link rel="stylesheet"
 		href="http://moden939.gabia.io/css/default.css?ver=171253">
@@ -234,7 +234,7 @@ body {
 			<!-- 유효성검사 -->
 			<script
 				src="http://moden939.gabia.io/skin/member/basic/register_form.skin2.check.js?v=171253"></script>
-			<script type="text/javascript">
+			<script type="text/javascript" charset="UTF-8">
 	  $('#win_hp_cert').click(function(){
       	var id=$('#uid').val();
       	open('checkSellerId.jsp?mb_id='+id,'chk',
@@ -283,8 +283,7 @@ body {
 			$('#chkNick').focus();
 			return false;
 		}     
-    	 if($('#reg_mb_zip').val().length<1 || $('#reg_mb_addr1').val().length<1 ||
-    			 $('#reg_mb_addr3').val().length<1){
+    	 if($('#reg_mb_zip').val().length<1 || $('#reg_mb_addr1').val().length<1 ){
     		alert('주소를 입력하셔야합니다');
  			$('#reg_mb_zip').focus();
  			return false;
@@ -302,11 +301,6 @@ body {
  			$('#email1').focus();
  			return false;
     	 }
-    	  
-    	  
-    	  
-    	  
-    	  
      });
     });
 	

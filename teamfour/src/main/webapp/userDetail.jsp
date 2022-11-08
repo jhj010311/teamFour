@@ -32,7 +32,7 @@ scope="session"></jsp:useBean>
 <%
 	request.setCharacterEncoding("utf-8");
 
-	String userinfo = (String)request.getAttribute("d_userid");
+	String userinfo = (String)session.getAttribute("d_userid");
 	if(userinfo!=null || !userinfo.isEmpty()){
 		userInfoVo=userInfoService.selectUser(userinfo);
 	}else{%>
