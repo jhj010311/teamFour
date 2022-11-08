@@ -31,7 +31,6 @@
 	<script src="http://moden939.gabia.io/js/jquery-1.8.3.min.js"></script>
 	<script src="http://moden939.gabia.io/js/jquery.menu.js?ver=171253"></script>
 	<script src="http://moden939.gabia.io/js/common.js?ver=171253"></script>
-	<script src="http://moden939.gabia.io/js/wrest.js?ver=171253"></script>
 	<script src="http://moden939.gabia.io/js/placeholders.min.js"></script>
 
 	<link rel="stylesheet"
@@ -94,6 +93,81 @@ body {
 scope = "session"></jsp:useBean>
 <jsp:useBean id="sellerInfoVo" class="com.sellerinfo.model.SellerInfoVO"
 scope ="session"></jsp:useBean>
+<script type="text/javascript" src="js/jquery-3.6.1.min.js" ></script>
+<script type="text/javascript">
+	$(function(){
+		$('#btn_submit').click(function(){
+			if($('#pdname').val().length<1){
+				alert('상품명을 입력하세요');
+				$('#pdname').focuds();
+				return false;
+			}
+			
+			if($('#price').val().length<1){
+				alert('가격을 입력하세요');
+				$('#price').focuds();
+				return false;
+			}
+			
+			if($('#qty').val().length<1){
+				alert('재고수량을 입력하세요');
+				$('#qty').focuds();
+				return false;
+			}
+			if($('#productImage').val().length<1){
+				alert('제품이미지를 넣어주세요');
+				$('#productImage').focuds();
+				return false;
+			}
+			if($('#detail').val().length<1){
+				alert('상세설명을 써주세요');
+				$('#detail').focuds();
+				return false;
+			}
+			
+			if($('#cloth').val()!='empty' && $('#food').val()!='empty'){
+				alert('여러개를 하실순 없어용');
+				return false;
+			}
+			if($('#cloth').val()!='empty' && $('#furniture').val()!='empty'){
+				alert('여러개를 하실순 없어용');
+				return false;
+			}
+			if($('#cloth').val()!='empty' && $('#electronics').val()!='empty'){
+				alert('여러개를 하실순 없어용');
+				return false;
+			}
+			if($('#cloth').val()!='empty' && $('#pet').val()!='empty'){
+				alert('여러개를 하실순 없어용');
+				return false;
+			}
+			if($('#food').val()!='empty' && $('#furniture').val()!='empty'){
+				alert('여러개를 하실순 없어용');
+				return false;
+			}
+			if($('#food').val()!='empty' && $('#electronics').val()!='empty'){
+				alert('여러개를 하실순 없어용');
+				return false;
+			}
+			if($('#food').val()!='empty' && $('#pet').val()!='empty'){
+				alert('여러개를 하실순 없어용');
+				return false;
+			}
+			if($('#furniture').val()!='empty' && $('#electronics').val()!='empty'){
+				alert('여러개를 하실순 없어용');
+				return false;
+			}
+			if($('#furniture').val()!='empty' && $('#pet').val()!='empty'){
+				alert('여러개를 하실순 없어용');
+				return false;
+			}
+			if($('#electronics').val()!='empty' && $('#pet').val()!='empty'){
+				alert('여러개를 하실순 없어용');
+				return false;
+			}
+		});
+	});
+</script>
 <%	
 	String sellerid = (String)session.getAttribute("d_sellerid");
 	sellerInfoVo = sellerInfoService.selectSeller(sellerid);
@@ -104,7 +178,7 @@ scope ="session"></jsp:useBean>
 	<script src="http://moden939.gabia.io/js/jquery.register_form.js"></script>
 	<script src="http://moden939.gabia.io/js/certify.js?v=171253"></script>
 		<form id="fregisterform" name="fregisterform"
-		action="<%=request.getContextPath()%>/createSeller_ok.jsp"
+		action="<%=request.getContextPath()%>/productRegister_ok.jsp"
 		onsubmit="return fregisterform_submit(this);" method="post"
 		enctype="multipart/form-data" >
 		<input type="hidden" name="w" value=""> <input type="hidden"
@@ -152,10 +226,8 @@ scope ="session"></jsp:useBean>
 						<tr>
 							<th scope="row"><label for="reg_mb_email" class="req">상세설명</label></th>
 							<td><input type="hidden" name="old_email" value="">
-									<div class="emailselect_wrap">
 									<textarea name="detail" id="detail" rows="100" cols="50"
 										class="detail" required></textarea>
-								</div> 
 								</td>
 						</tr>
 						<tr>
@@ -172,7 +244,7 @@ scope ="session"></jsp:useBean>
 										<option value="10060">수영복</option>
 										</select>
 										
-									<select name="food" id="cloth" class="reg_input" required>
+									<select name="food" id="food" class="reg_input" required>
 										<option value="empty">식품은 여기</option>
 										<option value="20010">건강식품</option>
 										<option value="20020">과일</option>
