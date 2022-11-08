@@ -53,12 +53,11 @@ public class ProductAllDAO {
 				int maincode = rs.getInt("maincode");
 				String mainname = rs.getString("mainname");
 				
-				ProductAllVO vo = new ProductAllVO(pdcode, pdname, price, qty, regdate,
-						seller_no, image, detail, div_no, subproduct_name, maincode, mainname);
+				ProductAllVO vo = new ProductAllVO(pdcode, pdname, price, qty, regdate, seller_no, image, detail, div_no, subproduct_name, maincode, mainname);
 				list.add(vo);
 			}
 			System.out.println("이름으로 상품검색 결과 list.size=" + list.size()
-				+"매개변수 name=" + name);
+				+", 매개변수 name=" + name);
 			
 			return list;
 		} finally {
@@ -114,7 +113,7 @@ public class ProductAllDAO {
 				vo.setMainname(mainname);
 			}
 			System.out.println("상품번호로 상품검색 결과 vo=" + vo
-				+"매개변수 pdcode=" + pdcode);
+				+", 매개변수 pdcode=" + pdcode);
 			
 			return vo;
 		} finally {
@@ -132,9 +131,7 @@ public class ProductAllDAO {
 		try {
 			con = pool.getConnection();
 			
-			String sql = "select pl.pdcode, pl.pdname, pl.price, pl.qty, pl.regdate,"
-					+ " pl.seller_no, pl.image, pl.detail, pl.div_no,"
-					+ " s.subproduct_name, m.mainname"
+			String sql = "select pl.*, s.subproduct_name, m.*"
 					+ " from productList pl join subproduct s"
 					+ " on pl.div_no = s.div_no"
 					+ "	join mainproduct m"
@@ -162,7 +159,7 @@ public class ProductAllDAO {
 				list.add(vo);
 			}
 			System.out.println("대분류코드로 상품검색 결과 list.size=" + list.size()
-				+"매개변수 maincode=" + maincode);
+				+", 매개변수 maincode=" + maincode);
 			
 			return list;
 		} finally {
