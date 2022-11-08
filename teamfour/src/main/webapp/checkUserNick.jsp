@@ -10,6 +10,7 @@ scope="page"></jsp:useBean>
 	//[2] checkUserid.jsp에서 post방식으로 서브밋
 	
 	request.setCharacterEncoding("utf-8");	
+	response.setCharacterEncoding("utf-8");
 	//1
 	String usernick=request.getParameter("mb_nick");
 	

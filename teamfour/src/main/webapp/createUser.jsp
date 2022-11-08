@@ -299,8 +299,7 @@ body {
     			$('#chkNick').focus();
     			return false;
     		}     
-        	 if($('#reg_mb_zip').val().length<1 || $('#reg_mb_addr1').val().length<1 ||
-        			 $('#reg_mb_addr3').val().length<1){
+        	 if($('#reg_mb_zip').val().length<1 || $('#reg_mb_addr1').val().length<1 ){
         		alert('주소를 입력하셔야합니다');
      			$('#reg_mb_zip').focus();
      			return false;
@@ -318,18 +317,8 @@ body {
      			$('#email1').focus();
      			return false;
         	 }
-        	  
-        	  
-        	  
-        	  
-        	  
          });
         }); 
-      
-      
-      
-      
-      
       
 	</script>
 			<script type="text/javascript">

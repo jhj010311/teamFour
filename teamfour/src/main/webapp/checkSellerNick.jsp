@@ -10,7 +10,7 @@ scope="session"></jsp:useBean>
 	//[1] createUser.jsp에서 get방식으로 이동(새창 열기)
 	//[2] checkUserid.jsp에서 post방식으로 서브밋
 	
-	request.setCharacterEncoding("utf-8");	
+	request.setCharacterEncoding("utf-8");
 	//1
 	String sellernick=request.getParameter("mb_nick");
 	
@@ -48,7 +48,8 @@ scope="session"></jsp:useBean>
 </head>
 <body>
 <h2>닉네임 중복검사</h2>
-<form name="frmsellornick" method="post" action="checksellernick.jsp">
+<form name="frmsellornick" method="post" action="checkSellerNick.jsp">
+
 	<label for="sellornick">닉네임 : </label>
 	<input type="text" name="mb_nick" id="mb_nick" size="17" 
 		value="<%=sellernick%>">
