@@ -88,7 +88,7 @@ try{
 							<tr>
 								<%-- <input type="hidden" name="cartno" value="<%=list.get(i).getCartNo() %>"> --%>
 								<td class="shoping__cart__item"><img class="session_data"
-									src="<%=list.get(i).getImage()%>" alt="">
+									src="img/<%=list.get(i).getImage()%>" alt="">
 									<h5 class="session_data"><%=list.get(i).getPdName()%></h5></td>
 								<td class="shoping__cart__price session_data"><%=list.get(i).getPrice()%>
 								</td>
