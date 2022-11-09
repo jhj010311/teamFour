@@ -67,9 +67,10 @@
                         </div>
                         <%-- onclick="location.href='shoping-cart.jsp?pdcode=<%=productAllVO.getPdcode()%>'" --%>
                         <%if(d_sellerid==null || d_sellerid.isEmpty()) {%>
-                        <a href="javascript:return false;" onclick="primaryBtn();" class="primary-btn">장바구니 담기</a>
+                        <a href="#" onclick="primaryBtn();" class="primary-btn">장바구니 담기</a>
                         									
                         <% }%>
+                        
                         <input type="hidden" id="idcheck" value="<%=d_userid%>">
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
@@ -189,11 +190,17 @@
     <!-- Footer Section Begin -->
    <%@ include file="../include/bottom.jsp"%>
    
-   <script>
+   <script type="text/javascript">
    	function primaryBtn() {
    		const qty = $("#qty").val();
    		const pdcode = <%=productAllVO.getPdcode()%>;
    		location.href="shoping-cart.jsp?pdcode=" + pdcode + "&qty=" + qty + "";
+   		<%
+	   		if(d_userid==null||d_userid.isEmpty()){%>
+	   		alert('로그인을 하세요!');
+   			location.href="loginClass.jsp";
+	   		<%}
+   		%>
    	}
    </script>
    
