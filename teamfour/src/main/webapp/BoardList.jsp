@@ -1,7 +1,7 @@
 <%@page import="com.reboard.model.ReboardVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 	<jsp:useBean id="reboardVO" class="com.reboard.model.ReboardVO"
 	scope="page"></jsp:useBean>
 <jsp:useBean id="reboardService" class="com.reboard.model.ReboardService"
@@ -12,6 +12,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	table, tr,td{
+		border: 1px solid black;
+		border-collapse: collapse;		
+	}
+</style>
 </head>
 <body>
 	<h2>전체 게시글 보기</h2>

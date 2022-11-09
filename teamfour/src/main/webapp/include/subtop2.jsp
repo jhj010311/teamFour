@@ -17,6 +17,7 @@
     	session.setAttribute("d_sellerid", t_sellerid);
     }
     
+    
 %>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -232,8 +233,4 @@
         </div>
     </section>
     <!-- Hero Section End -->
-    <div class="quickmenu" style="width:150px; height: 200px; position: fixed;">
-    <div>최근 본 상품</div>
-	  <a href="shop-grid.jsp"><img src="./img/blog/blog-2.jpg"></a>
-	  <p>완두콩</p>
-	</div>
+   

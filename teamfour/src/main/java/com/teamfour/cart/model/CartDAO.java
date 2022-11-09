@@ -69,7 +69,7 @@ public class CartDAO {
 					+ "	 , B.PRICE AS price\r\n"
 					+ "	 , B.PDNAME AS pdName\r\n"
 					+ "	 , B.IMAGE AS image\r\n"
-					+ "	 , price * qty AS totalprice\r\n"
+					+ "	 , B.price * B.qty AS totalprice\r\n"
 					+ "  FROM CART A\r\n"
 					+ " INNER JOIN PRODUCTLIST B \r\n"
 					+ "    ON A.PDCODE = B.PDCODE";
