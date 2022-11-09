@@ -6,7 +6,7 @@ public class Utility {
 	
 	public static final String UPLOAD_DIR = "img";
 	public static final String TEST_DIR 
-	= "C:\\lecture\\workspace_list\\jsp_ws\\teamfour\\src\\main\\webapp\\img";
+	= "C:\\lecture\\workspace_list\\teamfour\\teamfour\\teamfour\\src\\main\\webapp\\img";
 
 	
 	public static String displayRe(int step) {

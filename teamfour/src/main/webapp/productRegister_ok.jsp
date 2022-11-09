@@ -37,14 +37,14 @@
 		System.out.println("업로드 완료!");
 		
 		//업로드 파일 정보 구하기
-		String fileName=mr.getFilesystemName("upfile");
+		String fileName=mr.getFilesystemName("productImage");
 		long fileSize=0;
 		String originalFName="";
 		if(fileName!=null){  //파일이 첨부된 경우만
-			File file = mr.getFile("upfile");
+			File file = mr.getFile("productImage");
 			fileSize=file.length();
 			
-			originalFName=mr.getOriginalFileName("upfile");
+			originalFName=mr.getOriginalFileName("productImage");
 		}
 		
 		//1
@@ -94,7 +94,7 @@
 		vo.setPrice(Integer.parseInt(price));
 		vo.setQty(Integer.parseInt(qty));
 		vo.setSeller_no(Long.parseLong(seller_no));
-		vo.setImage(productImage);
+		vo.setImage(fileName);
 		vo.setDetail(detail);
 		vo.setDiv_no(Integer.parseInt(div_no));
 		

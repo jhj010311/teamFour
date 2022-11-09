@@ -78,7 +78,7 @@
                             <div class="col-lg-4">
                                     <div class="product__discount__item" >
                                         <div class="product__discount__item__pic set-bg"
-                                            data-setbg="<%=productAllVO.getImage()%>" onclick="location.href='shop-details.jsp?pdcode=<%=productAllVO.getPdcode()%>'">
+                                            data-setbg="<%=request.getContextPath() %>/img/<%=productAllVO.getImage()%>" onclick="location.href='shop-details.jsp?pdcode=<%=productAllVO.getPdcode()%>'">
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
