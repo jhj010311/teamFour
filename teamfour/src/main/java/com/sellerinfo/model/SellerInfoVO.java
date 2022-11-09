@@ -3,7 +3,7 @@ package com.sellerinfo.model;
 import java.sql.Timestamp;
 
 public class SellerInfoVO {
-	private int seller_no; //NUMBER NOT NULL, /* 판매자번호 */
+	private long seller_no; //NUMBER NOT NULL, /* 판매자번호 */
 	private String seller_name; // VARCHAR2(20) NOT NULL, /* 판매자명 */
 	private String seller_nick; // VARCHAR2(30) NOT NULL, /* 닉네임 */
 	private String seller_id; // VARCHAR2(30) NOT NULL, /* 판매자아이디 */
@@ -21,7 +21,7 @@ public class SellerInfoVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SellerInfoVO(int seller_no, String seller_name, String seller_nick, String seller_id, String seller_pwd,
+	public SellerInfoVO(long seller_no, String seller_name, String seller_nick, String seller_id, String seller_pwd,
 			String seller_tel, String seller_email, String seller_zipcode, String seller_address,
 			Timestamp seller_joindate, int seller_class) {
 		super();
@@ -39,11 +39,11 @@ public class SellerInfoVO {
 	}
 
 
-	public int getSeller_no() {
+	public long getSeller_no() {
 		return seller_no;
 	}
 
-	public void setSeller_no(int seller_no) {
+	public void setSeller_no(long seller_no) {
 		this.seller_no = seller_no;
 	}
 

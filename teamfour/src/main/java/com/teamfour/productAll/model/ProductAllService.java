@@ -33,4 +33,8 @@ public class ProductAllService {
 	public int deleteProductAll(int pdcode) throws SQLException {
 		return dao.deleteProductAll(pdcode);
 	}
+	
+	public List<ProductAllVO> selectbySellerNo(String seller_id) throws SQLException{
+		return dao.selectbySellerNo(seller_id);
+	}
 }

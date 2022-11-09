@@ -158,8 +158,7 @@ public class OrderinfoDAO {
 				String image = rs.getString("image");
 				String detail = rs.getString("detail");
 				
-				ProductAllVO vo = new ProductAllVO(pdcode, pdname, 
-						price, regdate, seller_no, image, detail, div_no);
+				ProductAllVO vo = new ProductAllVO(pdcode, pdname, price, regdate, seller_no, image, detail, div_no);
 				list.add(vo);
 			}
 			System.out.println("대분류코드로 상품검색 결과 list.size=" + list.size());

@@ -43,6 +43,20 @@ public class ProductAllVO {
 	
 	
 
+	public ProductAllVO(int pdcode, String pdname, int price, int qty,Timestamp regdate, long seller_no, String image,
+			String detail, int div_no) {
+		super();
+		this.pdcode = pdcode;
+		this.pdname = pdname;
+		this.price = price;
+		this.qty = qty;
+		this.regdate = regdate;
+		this.seller_no = seller_no;
+		this.image = image;
+		this.detail = detail;
+		this.div_no = div_no;
+	}
+	
 	public ProductAllVO(int pdcode, String pdname, int price, Timestamp regdate, long seller_no, String image,
 			String detail, int div_no) {
 		super();

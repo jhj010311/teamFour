@@ -162,7 +162,7 @@ public class SellerInfoDAO {
 			
 			rs=ps.executeQuery();
 			if(rs.next()) {
-				int seller_no = rs.getInt("seller_no");
+				long seller_no = rs.getLong("seller_no");
 				String seller_name = rs.getString("seller_name");
 				String seller_nick = rs.getString("seller_nick");
 				String seller_pwd = rs.getString("seller_pwd");
@@ -186,6 +186,7 @@ public class SellerInfoDAO {
 				vo.setSeller_joindate(seller_joindate);
 				vo.setSeller_class(seller_class);
 				vo.setOutdate(outdate);
+				
 			}
 			System.out.println("회원 조회 결과 vo = "+vo+", 매개변수 user_id="
 					+seller_id);
