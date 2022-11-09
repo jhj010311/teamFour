@@ -32,7 +32,9 @@
 	} else if(name != null && !name.isEmpty()){
 		searchBy = 2;
 	} else {
+		maincode = "";
 		name = "";
+		searchBy = 2;
 	}
 	
 	List<ProductAllVO> pdSearchList = null;
