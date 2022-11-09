@@ -67,9 +67,10 @@ scope="session"></jsp:useBean>
 	        <strong class="my_ov_name">
 	        <img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="profile_image">
 	        <br><%=sellerInfoVo.getSeller_nick()%></strong><br>
-	        <a href="<%=request.getContextPath() %>/EditSeller.jsp" 
+	        <a href="<%=request.getContextPath() %>/EditSeller.jsp?seller_id=<%=sellerinfo %>" 
 	        	class="smb_info">정보수정</a>
-	        <a href="https://demo.sir.kr/gnuboard5/bbs/logout.php">로그아웃</a>
+	        <a href="<%=request.getContextPath()%>/logout.jsp">로그아웃</a>
+	        <a href="<%=request.getContextPath()%>/deleteSeller.jsp?seller_id=<%=sellerinfo%>">회원탈퇴</a>
         </div>
         
         <h3>내정보</h3>

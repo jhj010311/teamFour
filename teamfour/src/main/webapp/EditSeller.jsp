@@ -1,3 +1,7 @@
+<%@page import="com.sellerinfo.model.SellerInfoService"%>
+<%@page import="com.sellerinfo.model.SellerInfoVO"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.SQLClientInfoException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../include/subtop2.jsp"%>
@@ -15,7 +19,6 @@
 	<script src="http://moden939.gabia.io/js/jquery-1.8.3.min.js"></script>
 	<script src="http://moden939.gabia.io/js/jquery.menu.js?ver=171253"></script>
 	<script src="http://moden939.gabia.io/js/common.js?ver=171253"></script>
-	<script src="http://moden939.gabia.io/js/wrest.js?ver=171253"></script>
 	<script src="http://moden939.gabia.io/js/placeholders.min.js"></script>
 
 	<link rel="stylesheet"
@@ -74,12 +77,27 @@ body {
 	background: #f2f2f2;
 }
 </style>
+<jsp:useBean id="sellerInfoService" class="com.sellerinfo.model.SellerInfoService"
+scope="session"></jsp:useBean>
+<%
+	String sellerinfo = (String)session.getAttribute("d_sellerid");
+	SellerInfoVO vo = null;
+	try{
+		vo = sellerInfoService.selectSeller(sellerinfo);
+		
+	}catch(SQLException e){
+		e.printStackTrace();	
+	}
+		
+
+%>
+
 			<!-- 회원정보 입력/수정 시작 { -->
 			<script src="http://moden939.gabia.io/js/jquery.register_form.js"></script>
 			<script src="http://moden939.gabia.io/js/certify.js?v=171253"></script>
 
 			<form id="fregisterform" name="fregisterform"
-				action="<%=request.getContextPath()%>/createSeller_ok.jsp"
+				action="<%=request.getContextPath()%>/EditSeller_ok.jsp"
 				onsubmit="return fregisterform_submit(this);" method="post"
 				autocomplete="off">
 				<input type="hidden" name="w" value=""> <input type="hidden"
@@ -91,7 +109,7 @@ body {
 					value="">
 				<div id="register_form" class="form_01">
 					<h3>
-						판매자 기본정보 <span class="req">필수입력사항</span>
+						판매자 기본정보
 					</h3>
 					<div class="regi_table">
 						<table>
@@ -104,17 +122,14 @@ body {
 								<tr>
 									<th scope="row"><label for="reg_mb_id" class="req">아이디</label></th>
 									<td><input type="text" name="mb_id" id="uid" required
-										class="reg_input" minlength="4" maxlength="20"
-										placeholder="영문소문자/숫자, 3~20자."> <span id="msg_mb_id"
-										class="reg_msg"> </span>
-										<button type="button" id="win_hp_cert" class="btn_frmline">아이디
-											중복확인</button></td>
+										class="reg_input" readonly="readonly" value="<%=sellerinfo%>">
+										 <span id="msg_mb_id" class="reg_msg" ></span></td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="reg_mb_password" class="req">비밀번호</label></th>
-									<td><input type="password" name="mb_password"
-										id="reg_mb_password" required class="reg_input" minlength="3"
-										maxlength="20"></td>
+									<td><input type="password" name="mb_password" id="reg_mb_password" 
+									class="reg_input" readonly="readonly" value="<%=vo.getSeller_pwd()%>">
+										</td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="reg_mb_password_re"
@@ -127,15 +142,15 @@ body {
 								<tr>
 									<th scope="row"><label for="reg_mb_name" class="req">이름</label></th>
 									<td><input type="text" id="reg_mb_name" name="mb_name"
-										value="" required class="reg_input"></td>
+										readonly="readonly" value="<%=vo.getSeller_name() %>" required class="reg_input"></td>
 								</tr>
 								<tr>
 									<th scope="row"><label for="reg_mb_nick" class="req">닉네임</label></th>
-									<td><input type="text" name="mb_nick" value="" id="unick"
-										required class="reg_input nospace" maxlength="20"> <span
-										id="msg_mb_nick" class="reg_msg"></span>
-										<button type="button" id="win_hp_cert2" class="btn_frmline">닉네임
-											중복확인</button></td>
+									<td><input type="text" name="mb_nick" id="unick"
+										required class="reg_input nospace" readonly="readonly"
+										 value="<%=vo.getSeller_nick() %> ">
+										 <span id="msg_mb_nick" class="reg_msg"></span>
+											</td>
 								</tr>
 
 								<tr>
@@ -249,17 +264,6 @@ body {
       
      $(function(){
       $('#btn_submit').click(function(){
-    	  if($('#uid').val().length<4){
-    		  alert('아이디는 4자 이상이어야 합니다.');
-    		  $('#uid').focus();
-	          return false;
-    	  }
-    	  
-         if($('#chkId').val()==""){
-			alert('아이디 중복확인 하세요');
-			$('#chkId').focus();
-				return false;
-			}
          
          if($('#reg_mb_password').val() != $('#reg_mb_password_re').val() ){
    		  alert('비밀번호가 일치하지 않아요.');
@@ -267,22 +271,6 @@ body {
 	          return false;
    	  	 }
     	  
-         if($('#reg_mb_name').val().length<1){
-        	 alert('이름을 입력하셔야 합니다.');
-        	 $('#reg_mb_name').focus();
-	          return false;
-         }
-         
-         if($('#unick').val().length<1){
-        	 alert('닉네임을 입력하셔야 합니다.');
-        	 $('#unick').focus();
-	          return false;
-         }
-		if($('#chkNick').val()==""){
-			alert('닉네임 중복체크하세요');
-			$('#chkNick').focus();
-			return false;
-		}     
     	 if($('#reg_mb_zip').val().length<1 || $('#reg_mb_addr1').val().length<1 ){
     		alert('주소를 입력하셔야합니다');
  			$('#reg_mb_zip').focus();
