@@ -94,7 +94,7 @@
 					<div class = "pdList">
 						
 						<div class = "searchImage">
-							<img src = "<%=forVo.getImage() %>"
+							<img src = "<%=request.getContextPath() %>/img/<%=forVo.getImage() %>"
 							 target = "<%=request.getContextPath() %>/shop-details.jsp?pdcode=<%=forVo.getPdcode() %>">
 						</div>
 						<div class = "searchDescription">

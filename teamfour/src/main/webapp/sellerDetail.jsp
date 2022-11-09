@@ -54,7 +54,7 @@ scope="session"></jsp:useBean>
 	        <strong class="my_ov_name">
 	        <img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="profile_image">
 	        <br><%=sellerInfoVo.getSeller_nick()%></strong><br>
-	        <a href="https://demo.sir.kr/gnuboard5/bbs/member_confirm.php?url=register_form.php" 
+	        <a href="<%=request.getContextPath() %>/EditSeller.jsp" 
 	        	class="smb_info">정보수정</a>
 	        <a href="https://demo.sir.kr/gnuboard5/bbs/logout.php">로그아웃</a>
         </div>
@@ -284,67 +284,11 @@ scope="session"></jsp:useBean>
                 <div class="smb_my_more">
                     <a href="./wishlist.php">더보기</a>
                 </div>
-                
-                <div id="smb_ws_act">
-                    <button type="submit" class="btn01" onclick="return fwishlist_check(document.fwishlist,'');">장바구니</button>
-                    <button type="submit" class="btn02" onclick="return fwishlist_check(document.fwishlist,'direct_buy');">주문하기</button>
-                </div>
             </form>
 	    </section>
 	    <!-- } 최근 위시리스트 끝 -->
 	</div>
 </div>
-
-<script>
-function member_leave()
-{
-    return confirm('정말 회원에서 탈퇴 하시겠습니까?')
-}
-
-function out_cd_check(fld, out_cd)
-{
-    if (out_cd == 'no'){
-        alert("옵션이 있는 상품입니다.\n\n상품을 클릭하여 상품페이지에서 옵션을 선택한 후 주문하십시오.");
-        fld.checked = false;
-        return;
-    }
-
-    if (out_cd == 'tel_inq'){
-        alert("이 상품은 전화로 문의해 주십시오.\n\n장바구니에 담아 구입하실 수 없습니다.");
-        fld.checked = false;
-        return;
-    }
-}
-
-function fwishlist_check(f, act)
-{
-    var k = 0;
-    var length = f.elements.length;
-
-    for(i=0; i<length; i++) {
-        if (f.elements[i].checked) {
-            k++;
-        }
-    }
-
-    if(k == 0)
-    {
-        alert("상품을 하나 이상 체크 하십시오");
-        return false;
-    }
-
-    if (act == "direct_buy")
-    {
-        f.sw_direct.value = 1;
-    }
-    else
-    {
-        f.sw_direct.value = 0;
-    }
-
-    return true;
-}
-</script>
 <!-- } 마이페이지 끝 -->
 
         </div>  <!-- } .shop-content 끝 -->

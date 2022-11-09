@@ -33,7 +33,7 @@ public class CartDAO {
 			con=pool.getConnection();
 			
 			String sql="insert into CART(CARTNO, PDCODE, QTY, USER_NO)"
-				+ " values(cart_seq.nextval,?,?,2)";
+				+ " values(cart_seq.nextval,?,?,1)";
 			ps=con.prepareStatement(sql);
 			
 			ps.setInt(1, carVo.getPdcode());

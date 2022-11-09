@@ -8,7 +8,8 @@
 	scope="page"></jsp:useBean>
 <%
 	request.setCharacterEncoding("utf-8");
-
+	String d_userid = (String)session.getAttribute("d_userid");
+	String d_sellerid = (String)session.getAttribute("d_sellerid");
 	String pdcode=request.getParameter("pdcode");
 	
 	try{
@@ -44,7 +45,7 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="<%=productAllVO.getImage()%>" alt="">
+                                src="<%=request.getContextPath() %>/img/<%=productAllVO.getImage()%>" alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="img/product/details/product-details-2.jpg"
@@ -72,7 +73,9 @@
                             </div>
                         </div>
                         <%-- onclick="location.href='shoping-cart.jsp?pdcode=<%=productAllVO.getPdcode()%>'" --%>
+                        <%if(d_sellerid==null || d_sellerid.isEmpty()) {%>
                         <a href="javascript:return false;" onclick="primaryBtn();" class="primary-btn">장바구니 담기</a>
+                        <% }%>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
