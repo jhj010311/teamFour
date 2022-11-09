@@ -73,7 +73,7 @@
                         <input type="hidden" id="idcheck" value="<%=d_userid%>">
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
-                            <li><b>Availability</b> <span>In Stock</span></li>
+                            <li><b>Availability</b> <span><%=productAllVO.getQty() %>개 남음</span></li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
                             <li><b>Weight</b> <span>0.5 kg</span></li>
                             <li><b>Share on</b>
@@ -107,7 +107,8 @@
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__tab__desc">
                                     <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
+                                    <p><%=productAllVO.getDetail() %></p>
+                                    <!-- <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
                                         Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus
                                         suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam sit amet quam
                                         vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada.
@@ -124,7 +125,7 @@
                                         nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
                                         Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Sed
                                         porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum
-                                        sed sit amet dui. Proin eget tortor risus.</p>
+                                        sed sit amet dui. Proin eget tortor risus.</p> -->
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">

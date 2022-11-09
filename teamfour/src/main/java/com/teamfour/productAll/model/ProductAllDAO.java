@@ -235,4 +235,50 @@ public class ProductAllDAO {
 			pool.dbClose(ps, con);
 		}
 	}
+	
+	public List<ProductAllVO> selectbySellerNo(String seller_id) throws SQLException{
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			con = pool.getConnection();
+			List<ProductAllVO> list = new ArrayList<>();
+			String sql = "select p.* from "
+					+ " productlist p join sellerinfo s "
+					+ " on p.seller_no = s.seller_no "
+					+ " where s.seller_id=? order by p.pdcode desc";
+			ps=con.prepareStatement(sql);
+			ps.setString(1, seller_id);
+			
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				int pdcode = rs.getInt("pdcode");
+				String pdname = rs.getString("pdname");
+				int price = rs.getInt("price");
+				int qty = rs.getInt("qty");
+				Timestamp regdate = rs.getTimestamp("regdate");
+				long seller_no = rs.getLong("seller_no");
+				String image = rs.getString("image");
+				String detail = rs.getString("detail");
+				int div_no = rs.getInt("div_no");
+				
+				ProductAllVO vo = new ProductAllVO(pdcode, pdname, price, qty, regdate, seller_no, image, detail, div_no);
+				
+				
+				list.add(vo);
+			}
+			System.out.println("사업자번호별 조회 결과 seller_no = "+seller_id+
+					" list.size = "+list.size());
+			return list;
+		}finally {
+			pool.dbClose(rs, ps, con);
+		}
+	}
+	
+	
+	
+	
+	
+	
 }
