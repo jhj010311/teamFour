@@ -57,6 +57,9 @@
 				onclick="location.href='BoardReWriteForm.jsp?num=<%=reboardVO.getNum()%>&ref=<%=reboardVO.getRef()%>&re_step=<%=reboardVO.getRe_step()%>&re_level=<%=reboardVO.getRe_level()%>'">
 			<input type="button" value="수정하기"
 				onclick="location.href='BoardUpdateForm.jsp?num=<%=reboardVO.getNum()%>'">
+			<input type="button" value="삭제하기"
+				onclick="location.href='BoardDeleteForm.jsp?num=<%=reboardVO.getNum()%>'">
+			
 			<input type="button" value="목록보기"
 				onclick="location.href='BoardList.jsp'">
 		</td>

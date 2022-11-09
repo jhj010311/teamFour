@@ -12,6 +12,8 @@
 	scope="session"></jsp:useBean>
 <%
 request.setCharacterEncoding("utf-8");
+String d_userid = (String)session.getAttribute("d_userid");
+String d_sellerid = (String)session.getAttribute("d_sellerid");
 
 int pdcode = 0;
 int qty = 0;
@@ -83,12 +85,13 @@ try{
 
 						<tbody>
 							<%
+							if(d_userid!=null&&!d_userid.isEmpty())
                       		for(int i=0;i<list.size();i++){ 
                       		%>
 							<tr>
 								<%-- <input type="hidden" name="cartno" value="<%=list.get(i).getCartNo() %>"> --%>
 								<td class="shoping__cart__item"><img class="session_data"
-									src="<%=list.get(i).getImage()%>" alt="">
+									src="img/<%=list.get(i).getImage()%>" alt="">
 									<h5 class="session_data"><%=list.get(i).getPdName()%></h5></td>
 								<td class="shoping__cart__price session_data"><%=list.get(i).getPrice()%>
 								</td>
