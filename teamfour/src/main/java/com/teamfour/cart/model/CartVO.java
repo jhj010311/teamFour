@@ -10,6 +10,7 @@ public class CartVO {
 	private int qty;
 	private int totalprice;
 	
+	
 	public int getPdcode() {
 		return pdcode;
 	}

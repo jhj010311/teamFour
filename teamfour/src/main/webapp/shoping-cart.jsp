@@ -11,9 +11,9 @@
 <jsp:useBean id="cartService" class="com.teamfour.cart.model.CartService"
 	scope="session"></jsp:useBean>
 <%
-request.setCharacterEncoding("utf-8");
-String d_userid = (String)session.getAttribute("d_userid");
-String d_sellerid = (String)session.getAttribute("d_sellerid");
+	request.setCharacterEncoding("utf-8");
+	String d_userid = (String)session.getAttribute("d_userid");
+	String d_sellerid = (String)session.getAttribute("d_sellerid");
 
 int pdcode = 0;
 int qty = 0;
@@ -26,7 +26,7 @@ if( request.getParameter("pdcode") != null ) {
 	cartVO.setQty(qty);
 }
 
-List<CartVO> list= null;
+List<CartVO> list = new ArrayList<>();
 int result = 0;
 
 try{
@@ -34,7 +34,7 @@ try{
 		result = cartService.insertCart(cartVO);	
 	} 
 	
-	list= cartService.selectCartItem();	
+	list= cartService.selectCartItem(d_userid);	
 	
 	int total = 0;
 	for(int i=0;i<list.size();i++){ 

@@ -38,6 +38,7 @@ public class CartDAO {
 			
 			ps.setInt(1, carVo.getPdcode());
 			ps.setInt(2, carVo.getQty());
+			ps.setInt(3, carVo.getUserNo());
 			
 			int cnt=ps.executeUpdate();
 			
@@ -52,32 +53,28 @@ public class CartDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<CartVO> selectCartItem() throws SQLException{
+	public List<CartVO> selectCartItem(String d_userid) throws SQLException{
 		Connection con=null;
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		
 		List<CartVO> list = new ArrayList<>();
-		CartVO cartVO = null;
+		CartVO cartVO = new CartVO();
 		try {
 			con = pool.getConnection();
 			
-			String sql = "SELECT A.PDCODE AS pdcode\r\n"
-					+ "	 , A.CARTNO AS cartNo\r\n"
-					+ "	 , A.QTY AS qty \r\n"
-					+ "	 , A.USER_NO AS userNo\r\n"
-					+ "	 , B.PRICE AS price\r\n"
-					+ "	 , B.PDNAME AS pdName\r\n"
-					+ "	 , B.IMAGE AS image\r\n"
-					+ "	 , B.price * B.qty AS totalprice\r\n"
-					+ "  FROM CART A\r\n"
-					+ " INNER JOIN PRODUCTLIST B \r\n"
-					+ "    ON A.PDCODE = B.PDCODE";
+			String sql = "select c.*, c.qty*p.price from \r\n"
+					+ "cart c join productList p\r\n"
+					+ "on c.pdcode=p.pdcode\r\n"
+					+ "join userinfo u\r\n"
+					+ "on c.user_no=u.user_no\r\n"
+					+ "where u.user_id=?";
 			ps = con.prepareStatement(sql);
+			ps.setString(1, d_userid);
+			
 			
 			rs=ps.executeQuery();
 			while(rs.next()) {
-				cartVO = new CartVO();
 				cartVO.setPdcode(rs.getInt("pdcode"));
 				cartVO.setCartNo(rs.getInt("cartno"));
 				cartVO.setQty(rs.getInt("qty"));

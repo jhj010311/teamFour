@@ -15,8 +15,8 @@ public class CartService {
 		return dao.insertCart(vo);
 	}
 
-	public List<CartVO> selectCartItem() throws SQLException {
-		return dao.selectCartItem();
+	public List<CartVO> selectCartItem(String d_userid) throws SQLException {
+		return dao.selectCartItem(d_userid);
 	}
 	
 	public int deleteCart(int cartno) throws SQLException {
