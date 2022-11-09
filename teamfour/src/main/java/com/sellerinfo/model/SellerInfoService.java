@@ -38,6 +38,14 @@ public class SellerInfoService {
 		return sellerDao.selectSeller(seller_id);
 	}
 
+	public int sellerUpdate(String address, String tel,String email, String zipcode
+			,String id )throws SQLException {
+		return sellerDao.sellerUpdate(address, tel, email, zipcode ,id);
+	}
 	
+	public int deleteSeller(String sellerid, String pwd) throws SQLException {
+		return sellerDao.deleteSeller(sellerid, pwd);
+	}
 
+	
 }

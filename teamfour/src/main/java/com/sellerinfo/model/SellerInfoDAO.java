@@ -10,6 +10,8 @@ import com.userinfo.db.ConnectionPool2;
 import com.userinfo.model.UserInfoService;
 import com.userinfo.model.UserInfoVO;
 
+import oracle.jdbc.proxy.annotation.Pre;
+
 public class SellerInfoDAO {
 
 	private ConnectionPool2 pool;
@@ -194,7 +196,56 @@ public class SellerInfoDAO {
 		}finally {
 			pool.dbClose(rs, ps, con);
 		}
-		
-		
 	}
+		
+		public int sellerUpdate(String address, String tel,String email, String zipcode
+				,String id )throws SQLException {
+			Connection con = null;
+			PreparedStatement ps = null;
+			
+			try {
+				con= pool.getConnection();
+				String sql = "update sellerinfo "
+						+ " set seller_address=? ,seller_tel=? "
+						+ ", seller_email=?, seller_zipcode=? "
+						+ " where seller_id = ?";
+				ps=con.prepareStatement(sql);
+				ps.setString(1, address);
+				ps.setString(2, tel);
+				ps.setString(3, email);
+				ps.setString(4, zipcode);
+				ps.setString(5, id);
+				
+				int cnt = ps.executeUpdate();
+				System.out.println("판매자 업데이트 완료 매개변수 address="+address+
+						", email="+email+", zipcode = "+zipcode+", id="+id);
+				return cnt;
+			}finally {
+				pool.dbClose(ps, con);
+			}
+	}
+		
+		public int deleteSeller(String sellerid, String pwd) throws SQLException {
+			Connection con = null;
+			PreparedStatement ps = null;
+			
+			try {
+				con=pool.getConnection();
+				String sql ="update sellerinfo "
+						+ " set outdate='Y' "
+						+ " where seller_id=? and seller_pwd=?";
+				ps=con.prepareStatement(sql);
+				ps.setString(1, sellerid);
+				ps.setString(2, pwd);
+				
+				int cnt = ps.executeUpdate();
+				
+				System.out.println("탈퇴 경과 cnt = "+cnt);
+				return cnt;
+			}finally {
+				pool.dbClose(ps, con);
+			}
+		}
+		
+		
 }
