@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/subtop3.jsp"%>
+<%@ include file="../include/subtop2.jsp"%>
 <style type="text/css">
 #ig {
 	background-color: write;

@@ -1,5 +1,6 @@
 package com.userinfo.db;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,4 +46,11 @@ public class ConnectionPool2 {
 		if(ps!=null) ps.close();
 		if(con!=null) con.close();
 	}
+	
+	public void dbClose(CallableStatement cs,Connection con) 
+			throws SQLException {
+		if(cs!=null) cs.close();
+		if(con!=null) con.close();
+	}
+	
 }

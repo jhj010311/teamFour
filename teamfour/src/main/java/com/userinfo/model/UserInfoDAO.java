@@ -225,10 +225,28 @@ public class UserInfoDAO {
 		}finally {
 			pool.dbClose(rs, ps, con);
 		}
-		
-		
 	}
-	
+	public int deleteUser(String userid, String pwd) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		
+		try {
+			con=pool.getConnection();
+			String sql ="update userinfo "
+					+ " set outdate='Y' "
+					+ " where user_id=? and user_pwd=?";
+			ps=con.prepareStatement(sql);
+			ps.setString(1, userid);
+			ps.setString(2, pwd);
+			
+			int cnt = ps.executeUpdate();
+			
+			System.out.println("탈퇴 경과 cnt = "+cnt);
+			return cnt;
+		}finally {
+			pool.dbClose(ps, con);
+		}
+	}
 	
 	
 }

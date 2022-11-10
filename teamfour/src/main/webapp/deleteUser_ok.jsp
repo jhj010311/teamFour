@@ -9,22 +9,22 @@
 </head>
 <body>
 <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
-<jsp:useBean id="sellerInfoService" class="com.sellerinfo.model.SellerInfoService"
+<jsp:useBean id="userInfoService" class="com.userinfo.model.UserInfoService"
 scope="session"></jsp:useBean>
 <%
-	String d_sellerid = (String)session.getAttribute("d_sellerid");
+	String d_userid = (String)session.getAttribute("d_userid");
 	String pwd = request.getParameter("pwd");
 	
 	try{
-		boolean bool = sellerInfoService.deleteSeller(d_sellerid, pwd);
-		
-		if(bool==false){
-			Cookie cookie = new Cookie("ck_sellerid", d_sellerid);
-			cookie.setPath("/");
-			cookie.setMaxAge(0);
-			response.addCookie(cookie);
-			session.invalidate();
-			%>
+		int cnt = userInfoService.deleteUser(d_userid, pwd);
+				
+		if(cnt>0){
+		Cookie cookie = new Cookie("ck_userid", d_userid);
+		cookie.setPath("/");
+		cookie.setMaxAge(0);
+		response.addCookie(cookie);
+		session.invalidate();
+		%>
 			<script type="text/javascript">
 			alert('탈퇴성공...');
 			location.href="<%=request.getContextPath()%>/mainpage.jsp";
@@ -37,6 +37,7 @@ scope="session"></jsp:useBean>
 			location.href="<%=request.getContextPath()%>/mainpage.jsp";
 			</script>
 		<%}
+		
 	}catch(SQLException e){
 		e.printStackTrace();
 	}

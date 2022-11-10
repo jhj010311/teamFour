@@ -43,7 +43,7 @@ public class SellerInfoService {
 		return sellerDao.sellerUpdate(address, tel, email, zipcode ,id);
 	}
 	
-	public int deleteSeller(String sellerid, String pwd) throws SQLException {
+	public boolean deleteSeller(String sellerid, String pwd) throws SQLException {
 		return sellerDao.deleteSeller(sellerid, pwd);
 	}
 

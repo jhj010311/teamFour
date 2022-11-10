@@ -1,5 +1,6 @@
 package com.sellerinfo.model;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -225,25 +226,25 @@ public class SellerInfoDAO {
 			}
 	}
 		
-		public int deleteSeller(String sellerid, String pwd) throws SQLException {
+		public boolean deleteSeller(String sellerid, String pwd) throws SQLException {
 			Connection con = null;
-			PreparedStatement ps = null;
+			CallableStatement cs = null;
 			
 			try {
 				con=pool.getConnection();
-				String sql ="update sellerinfo "
-						+ " set outdate='Y' "
-						+ " where seller_id=? and seller_pwd=?";
-				ps=con.prepareStatement(sql);
-				ps.setString(1, sellerid);
-				ps.setString(2, pwd);
 				
-				int cnt = ps.executeUpdate();
+				String sql = "call delete_seller(?,?)";
+				cs=con.prepareCall(sql);
 				
-				System.out.println("탈퇴 경과 cnt = "+cnt);
-				return cnt;
+				cs.setString(1, sellerid);
+				cs.setString(2, pwd);
+				
+				boolean bool = cs.execute();
+				
+				System.out.println("탈퇴 매개변수 sellerid ="+sellerid+", pwd= "+pwd );
+				return bool;
 			}finally {
-				pool.dbClose(ps, con);
+				pool.dbClose(cs, con);
 			}
 		}
 		
