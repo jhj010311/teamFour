@@ -9,20 +9,60 @@
 <%
 	request.setCharacterEncoding("utf-8");
 	
-	int cartLength = (int)request.getAttribute("cartLength");
-	// 카트 페이지의 list의 length만 받아오기
-	// list를 통째로 받아오면 qty 변경이 반영되기 힘들 것 같음
+	List<CartVO> orderList = (List<CartVO>)request.getAttribute("orderList");
+	// 카트 내에서 변경된 수량에 따라 변경된 qty와 totalPrice를 반영한 새로운 리스트를 받아온다
 	
-	// 카트에서 변경시킨 qty를 받아오는 방법???
-	// post로 값들을 받아오는 것 자체는 확정
-	// 아니면 js에서 click function으로 새 list에 add로 집어넣은 뒤에 setAttribute?
-			
-	// 이 페이지에서 최종확인 + 주소 입력을 할 것인지 아니면 카트 페이지에서 받아오고 이 페이지에선 바로 처리할지
-	
+	request.setAttribute("list", orderList);
+	// 처리 페이지로 넘기기
 %>
 
-<section>
+<script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#Order').click(function(){
+			if(confirm("주문하시겠습니까?")){
+				location.href="orderProducts.jsp";
+			}
+		});
+	});
+</script>
 
+<section>
+	<table>
+		<thead>
+			<tr>
+				<th class="shoping__product">Products</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Total</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<%for(CartVO forVo : orderList) {%>
+				<tr>
+					<td class="shoping__cart__item"><img class="session_data"
+						src="img/<%=forVo.getImage()%>" alt="">
+						<h5 class="session_data"><%=forVo.getPdName()%></h5>
+					</td>
+					<td class="shoping__cart__price session_data">
+						<%=forVo.getPrice()%>
+					</td>
+					<td class="shoping__cart__quantity">
+						<div class="quantity">
+							<div class="pro-qty">
+								<%=forVo.getQty()%>
+								<input type="hidden" value="<%=forVo.getQty()%>" class="session_data">
+							</div>
+						</div>
+					</td>
+					<td class="shoping__cart__total"><%=forVo.getTotalprice()%>
+					</td>
+				</tr>
+			<%} %>
+		</tbody>
+	</table>
+	<a href = "#" id = "Order">주문하기</a>
 </section>
 
 
