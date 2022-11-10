@@ -296,8 +296,8 @@ scope ="session"></jsp:useBean>
 				<div class="btn_confirm">
 					<input type="hidden" name="chkId" id="chkId"> <input
 						type="hidden" name="chkNick" id="chkNick"> <a
-						href="mainpage.jsp" class="btn_cancel">CANCEL</a> <input
-						type="submit" value="JOIN" id="btn_submit" class="btn_submit"
+						href="mainpage.jsp" class="btn_cancel">메인으로 가기</a> <input
+						type="submit" value="등록하기" id="btn_submit" class="btn_submit"
 						accesskey="s">
 					</div>
 			</div>

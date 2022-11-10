@@ -86,8 +86,6 @@ scope="session"></jsp:useBean>
             <dt>상품등록</dt>
             <dd><input type="button" value="상품등록하러 가기" onclick="location.href='productRegister.jsp'">  </dd>
         </dl>
-        
-        <a href="deleteUser.jsp" class="withdrawal">회원탈퇴</a>
     </section>
     <!-- } 회원정보 개요 끝 -->
 
