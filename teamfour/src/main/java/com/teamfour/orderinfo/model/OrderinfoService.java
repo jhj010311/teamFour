@@ -11,6 +11,10 @@ public class OrderinfoService {
 		dao = new OrderinfoDAO();
 	}
 	
+	public int insertOrderinfo(OrderinfoVO vo) throws SQLException {
+		return dao.insertOrderinfo(vo);
+	}
+	
 	public ProductAllVO detailViewPdCode(int pdcode) throws SQLException{
 		return dao.detailViewPdCode(pdcode);
 	}
